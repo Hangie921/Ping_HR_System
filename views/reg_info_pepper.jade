@@ -1,0 +1,66 @@
+mixin teamname(type, name)
+	if type === "student"
+		td <b>S </b>#{name}
+	else
+		td #{name}
+
+extends layout
+
+block content
+	div.span6.offset3
+		h1 Hi #{user} !
+			a#download_btn.btn.btn-lg.btn-primary.pull-right(href="/download/csv") Download csv
+	table#enroll_data.table.table-striped.table-bordered(border='1')
+		thead
+			tr
+				th 報名序號
+				th 隊名
+				th 姓名
+				th Mail
+				th 手機
+				th 報名表
+				th 報名時間
+				th 付錢沒
+				th 最後編輯者＆編輯時間
+		each result in results
+			- info = result.team_details
+			tr
+				td #{result._id}
+					button
+						a(href="reg_info/#{result._id}") Edit
+				+teamname(info.team_category, info.team_name)
+				td <b>* </b>#{info.team_leader_name}
+				td #{info.leader_email}
+				td #{info.mobile}
+				td 
+					if result.pdf
+						a(href="#{result.pdf.path}" target="_blank") #{result.pdf.name}
+				td #{info.reg_time}
+				if info.paid
+					td Yes
+				else
+					td No
+				if result.admin_detail.last_editor_id
+					td #{result.admin_detail.last_editor_id} : #{result.admin_detail.last_edit_time}
+				else
+					td 
+			each m_info, index in info.team_member
+				tr
+					td #{result._id}
+					+teamname(info.team_category, info.team_name)
+					td #{m_info.name}
+					td #{m_info.email}
+					td
+					td
+					td
+					td
+					td
+	script(type='text/javascript').
+		$(document).ready(function(){
+		    $('#enroll_data').DataTable();
+		    $('#Home, #contact_info').removeClass('active');
+		    $('#reg_info').addClass('active');
+		});
+
+
+

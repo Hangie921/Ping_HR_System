@@ -1,0 +1,31 @@
+/*
+	SkyApp Bootstrap Sass Theme
+	Author: Janet Hsu
+	Version: 0.0.1
+*/
+
+/* BASE -Base Styles, Variables, mixins, etc* */
+
+@import 'base/_variables.scss';
+@import 'base/_mixins.scss';
+@import 'base/_normalize.scss';
+@import 'base/_base.scss';
+
+/* MODULES - Individual sit componets */
+
+@import 'modules/_typography.scss';
+@import 'modules/_blocks.scss';
+@import 'modules/_buttons.scss';
+@import 'modules/_sections.scss';
+// @import 'modules/_sections_sg.scss';
+@import 'modules/_components.scss';
+@import 'modules/_forms.scss';
+@import 'modules/_animations.scss';
+
+/* LAYOUTS- Page Layout Styles */
+
+@import 'layouts/_nav.scss';
+@import 'layouts/_header.scss';
+@import 'layouts/_footer.scss';
+
+@import 'modules/_responsive.scss';

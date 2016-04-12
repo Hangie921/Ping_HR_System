@@ -1,0 +1,404 @@
+@charset "UTF-8";
+/*
+	SkyApp Bootstrap Sass Theme
+	Author: Janet Hsu
+	Version: 0.0.1
+*/
+/* BASE -Base Styles, Variables, mixins, etc* */
+/*Font Colors*/
+/*Font Size*/
+/*Background Colours*/
+/*Setting*/
+/* Showcase Area */
+/* Mixins */
+h1, h2, h3, h4, h5 {
+  margin-top: 0;
+}
+
+h3 {
+  font-size: 30px;
+}
+
+a {
+  cursor: pointer;
+}
+
+a:hover {
+  text-decoration: none;
+}
+
+.page-header {
+  margin-top: 30px;
+}
+
+.no-pad-top {
+  padding-top: 0;
+}
+
+.fp-tableCell {
+  vertical-align: top !important;
+  height: initial !important;
+}
+
+.fp-section.fp-table, .fp-slide.fp-table {
+  height: auto;
+}
+
+.fp-controlArrow.fp-prev, .fp-controlArrow.fp-next {
+  background: transparent;
+  height: 45px;
+  width: 45px;
+  border: 1px solid #f16b29;
+  -moz-border-radius: 50%;
+  -webkit-border-radius: 50%;
+  -ms-border-radius: 50%;
+  -o-border-radius: 50%;
+  border-radius: 50%;
+  -moz-transition: all 0.1s;
+  -webkit-transition: all 0.1s;
+  -ms-transition: all 0.1s;
+  -o-transition: all 0.1s;
+  transition: all 0.1s;
+  left: 12%;
+  background: #e8e8e8;
+}
+
+.fp-controlArrow.fp-prev:before, .fp-controlArrow.fp-next:before {
+  position: absolute;
+  content: '';
+  display: block;
+  background: transparent;
+  top: 0px;
+  width: 16px;
+  height: 16px;
+  left: 40%;
+  top: 31%;
+  border-top: 1px solid #f16b29;
+  -ms-transform: rotate(-45deg);
+  -webkit-transform: rotate(-45deg);
+  transform: rotate(-45deg);
+}
+
+.fp-controlArrow.fp-prev:after, .fp-controlArrow.fp-next:after {
+  position: absolute;
+  content: '';
+  display: block;
+  background: transparent;
+  top: 0px;
+  width: 16px;
+  height: 16px;
+  left: 40%;
+  top: 31%;
+  border-top: 1px solid #f16b29;
+  -ms-transform: rotate(-135deg);
+  -webkit-transform: rotate(-135deg);
+  transform: rotate(-135deg);
+}
+
+.fp-controlArrow.fp-prev:hover, .fp-controlArrow.fp-next:hover {
+  background: #fbaf5d;
+  color: white !important;
+  border: 0;
+  -webkit-box-shadow: -3px 14px 0px -2px rgba(220, 220, 220, 0.7);
+  -moz-box-shadow: -3px 14px 0px -2px rgba(220, 220, 220, 0.7);
+  -ms-box-shadow: -3px 14px 0px -2px rgba(220, 220, 220, 0.7);
+  -o-box-shadow: -3px 14px 0px -2px rgba(220, 220, 220, 0.7);
+  box-shadow: -3px 14px 0px -2px rgba(220, 220, 220, 0.7);
+}
+
+.fp-controlArrow.fp-next {
+  right: 0;
+  left: initial;
+}
+
+.fp-controlArrow.fp-next:hover {
+  -webkit-box-shadow: 0px -14px 0px -2px rgba(220, 220, 220, 0.7);
+  -moz-box-shadow: 0px -14px 0px -2px rgba(220, 220, 220, 0.7);
+  -ms-box-shadow: 0px -14px 0px -2px rgba(220, 220, 220, 0.7);
+  -o-box-shadow: 0px -14px 0px -2px rgba(220, 220, 220, 0.7);
+  box-shadow: 0px -14px 0px -2px rgba(220, 220, 220, 0.7);
+}
+
+/*the setting about the slotMachine*/
+.slotMachine {
+  height: 45px;
+  margin-bottom: 10px;
+}
+
+#slot3 {
+  margin-left: 152px;
+  margin-top: -62px;
+}
+
+#slot3 .slot {
+  display: block;
+}
+
+#slotButton3 {
+  cursor: pointer;
+}
+
+.clearfix:after {
+  content: " ";
+  /* Older browser do not support empty content */
+  visibility: hidden;
+  display: block;
+  height: 0;
+  clear: both;
+}
+
+body {
+  font-family: "raleway", "Lantinghei TC", "Microsoft JhengHei", sans-serif;
+  font-size: 18px;
+  line-height: 1.7em;
+  letter-spacing: 1px;
+  color: #333;
+  padding-top: 100px;
+}
+
+ul, li {
+  list-style: none;
+}
+
+input, textarea, button {
+  -moz-border-radius: 0px;
+  -webkit-border-radius: 0px;
+  -ms-border-radius: 0px;
+  -o-border-radius: 0px;
+  border-radius: 0px;
+}
+
+img.device {
+  width: 100%;
+}
+
+/*BACKGROUND COLOUR***/
+.primary_bg {
+  background-color: #f16b29;
+}
+
+/*POSITIONS****/
+.relative-position {
+  position: relative;
+}
+
+/*FONTS****/
+.en_para {
+  font-family: "raleway", "文鼎黑體";
+}
+
+.cn_para {
+  font-family: "heisei-kaku-gothic-std";
+}
+
+.primary-text {
+  color: #f16b29;
+}
+
+.white-text {
+  color: #ffffff;
+}
+
+.font-fatfrank {
+  font-family: "fatfrank", sen-serif;
+}
+
+/**COLUMNS SETTINGS***/
+.col-centered {
+  float: none;
+  margin: 0 auto;
+  clear: both;
+}
+
+/****BUTTONS********/
+.hide {
+  display: none;
+}
+
+.no-pad {
+  padding: 0 !important;
+}
+
+.zindex {
+  z-index: 3;
+  position: relative;
+}
+
+.add-border-pad {
+  padding: 20px;
+}
+
+/* MODULES - Individual sit componets */
+.sec_login {
+  padding: 40px 15px;
+  text-align: center;
+}
+
+.form-signin {
+  max-width: 330px;
+  padding: 15px;
+  margin: 0 auto;
+}
+
+.form-signin .form-signin-heading,
+.form-signin .checkbox {
+  margin-bottom: 10px;
+}
+
+.form-signin .checkbox {
+  font-weight: normal;
+}
+
+.form-signin .form-control {
+  position: relative;
+  font-size: 16px;
+  height: auto;
+  padding: 10px;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+.form-signin .form-control:focus {
+  z-index: 2;
+}
+
+.form-signin input[type="text"] {
+  margin-bottom: -1px;
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+.form-signin input[type="password"] {
+  margin-bottom: 10px;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+}
+
+/* LAYOUTS- Page Layout Styles */
+/*NavBar*/
+header {
+  position: fixed !important;
+  top: 0;
+  left: 0;
+  float: left;
+  width: 100% !important;
+  margin: 20px auto;
+  padding: 0 10% !important;
+}
+
+header div {
+  float: left;
+  padding: 0 !important;
+}
+
+header a.navbar-brand {
+  font-family: "fatfrank", sen-serif;
+  color: #f16b29;
+  display: block;
+  width: 220px;
+  height: 50px;
+  padding: 0;
+  font-size: 35px;
+  margin: 20px 0;
+}
+
+header a {
+  -moz-transition: all 1s;
+  -webkit-transition: all 1s;
+  -ms-transition: all 1s;
+  -o-transition: all 1s;
+  transition: all 1s;
+}
+
+div.main-menu {
+  float: right;
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
+ul.menu {
+  margin: 0;
+  padding: 0;
+  min-width: 600px;
+  float: right;
+  text-align: right;
+}
+
+ul.menu li {
+  display: inline-block;
+  margin: 13px 0 0 5%;
+  text-transform: uppercase;
+  text-align: right;
+  vertical-align: top;
+  background-color: transparent;
+}
+
+ul.menu li.active a {
+  font-weight: 600;
+}
+
+ul.menu li a {
+  position: relative;
+  display: inline-block;
+  padding: 0;
+  outline: none;
+  color: #fff;
+  text-decoration: none;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-weight: 300;
+  text-shadow: 0 0 1px rgba(255, 255, 255, 0.3);
+  font-family: "raleway", "文鼎黑體";
+  font-size: 14px;
+}
+
+ul.menu li a:after {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background: #f16b29;
+  content: '';
+  opacity: 0;
+  -webkit-transition: opacity 0.3s, -webkit-transform 0.3s;
+  -moz-transition: opacity 0.3s, -moz-transform 0.3s;
+  transition: opacity 0.3s, transform 0.3s;
+  -webkit-transform: translateY(10px);
+  -moz-transform: translateY(10px);
+  transform: translateY(10px);
+}
+
+ul.menu li a:hover {
+  font-weight: 600;
+}
+
+ul.menu li a:hover::after, ul.menu li.active a:after {
+  opacity: 1 !important;
+  -webkit-transform: translateY(0px);
+  -moz-transform: translateY(0px);
+  transform: translateY(0px);
+  color: white;
+}
+
+#header, #header ul li a {
+  transition: color .5s, opacity .5s;
+}
+
+#header.fff {
+  background-color: transparent;
+}
+
+#header.fff ul li a {
+  color: #333;
+}
+
+#header.orange {
+  background-color: transparent;
+}
+
+#header.orange ul li a {
+  color: #fff;
+}

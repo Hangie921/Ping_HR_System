@@ -1,0 +1,499 @@
+
+
+
+
+/********************* TABLET******************/
+@media screen and (max-width: 990px) {
+
+/****HEADER******/
+.header {
+	margin:0 auto;
+}
+
+/****COMPETITION***********/
+.competition-headings li{
+			vertical-align: middle;
+			width: 25%;
+
+		    a {
+		    	text-align: center;
+		    	padding:10px;
+		    	letter-spacing: 4px;
+		    	line-height: 20px;
+		    }
+	}
+
+/*****MOBILE MENU************/
+	.menu-mobile {
+  position: fixed;
+  width: 50px;
+  height: 50px;
+  font-size: 30px;
+  text-align:center;
+  border-radius: 100%;
+  right:25px;
+  top:12px;
+}
+.menu-bg {
+ 
+}
+.menu-burger {
+  @extend .menu-mobile;
+  color: white;
+  padding-top: 11px;
+  -webkit-user-select: none;
+  cursor: pointer;
+  transition: .4s;
+  transform-origin: center;
+  &.fs {
+   }
+}
+.menu-items-mobile{
+  
+  font-weight: bold;
+  font-size: 40px;
+  letter-spacing:10px;
+  color: white;
+  text-align: center;
+  opacity:0;
+  transition: .4s;
+  margin-top:100px;
+  width:100%;
+  height:100%;
+  position:fixed;
+  top:50px;
+  left:0;
+  pointer-events:none;
+  li {
+  	text-align: center;
+    transition: 1s;
+    opacity: 0;
+    margin-top: 0px;
+    padding-top: 10%;
+    display: block;
+    width: 100%;
+
+    a {
+    	font-size:30px !important;
+    	font-weight:bold !important;
+    }
+  }
+  &.fs {
+    pointer-events:auto;
+    opacity: 1;
+ 
+  width:100%;
+  height:100%;
+      background: $navy;
+    width: 100%;
+    margin-top:0;
+    left: 0px;
+    top: 50px;
+  position:fixed;
+    li{
+      opacity: 1;
+    
+    }
+  }
+}
+
+ul.menu {
+	min-width: initial;
+    float: none;
+	li {
+		padding:14% 0 0 0;
+	text-align:center;
+	margin:0 !important;
+	}
+}
+
+
+.jumpnow_link a {
+	padding:15px !important;
+}
+.menu-items-mobile {
+
+	li {
+		width:100%;
+		display:block;
+		padding-left:30px;
+		text-align: center;
+
+
+		a {
+			padding:0;
+			margin:0;
+		}
+	}
+}
+	
+
+
+
+
+}/******************MOBILE************************/
+
+@media screen and (max-width: 480px) {
+	
+
+
+	body {
+		font-size: 16px;
+		line-height: 22px;
+		letter-spacing: initial;
+	}
+	
+
+	.no-pad-m  {
+		padding:0 !important;
+	}
+
+	.section {
+		height:auto !important;
+		padding-bottom:30px !important;
+	}
+
+	header#header {
+		background:$navy ;
+		height:50px;
+		padding:10px 10% ;
+		margin:0;
+	
+	
+	a.navbar-brand {
+		font-size:28px ;
+		width:initial;
+		height:initial;
+		margin:15px 0;
+		}
+		
+	}
+
+
+	div.section-padding{
+		padding:1%;
+	}
+	#sec_about .border_container {
+		padding:3%;
+	}
+
+	a.btn {
+		width:100%;
+	}
+	a.bizplan_download {
+		margin:0 0 15px 0 !important;
+
+	}
+	
+
+
+	.sloganContainer {
+
+	    min-height: 600px;
+	    height: initial;
+	}
+
+	.fp-slidesContainer {
+	    margin-top: 14%;
+	}
+	.slide-inner {
+		width:97%;
+	}
+
+
+
+	
+
+	.info_list ul li{
+		width:100%;
+		float:left;
+		margin-bottom:10px;
+		.fa {
+			height:10%;
+		}
+	}
+	div.timeline {
+		ul {
+			li {
+				width:100%;
+				padding:20px;
+				&:hover {
+					margin:0 !important;
+				}
+
+				&:before {
+
+					  display: none;
+				} 
+				&:after {
+
+			        display:none;
+
+
+				} 
+			}
+		}
+	}
+	#competition_prize_slide  {
+
+		.prize-single {
+
+			min-height: 180px;
+			h4 {
+				margin-top:20px;
+			}
+
+		&:first-of-type {
+		@include background-size(50% auto);
+			h4{
+				font-size:34px;
+				color:#2b4252;
+			}
+	 	}
+	 	&:nth-of-type(2) {
+		@include background-size(50% auto);
+			color:$navy;
+		
+	 	}
+	 	&:nth-of-type(3) {
+	
+		@include background-size(50% auto);
+		
+	 	
+
+			}
+
+
+
+		}
+
+	}
+	div.competition_topic  {
+		h4 {
+			text-align: left;
+		}
+	}
+
+	/***Mobile Height control***/
+	.fp-slides, .fp-slidesContainer,.border_container  {
+		height: auto !important;
+	}
+
+
+
+/****COMPETITION*********/
+
+
+
+div.competition_topic .btn {
+	margin-top:30px;
+     position:initial;
+   }
+div.timeline {
+   position:initial;
+   margin:0;
+}
+
+/**SPONSORSS*****/
+div.sponsor-group li span {
+    opacity: 0;
+    position: absolute;
+    top: 0;
+    left: -12vw;
+    width: 100vw;
+}
+
+ul.sponsor-list li {
+
+	&:hover span{
+		display:none;
+	}
+
+	
+
+
+	
+
+}
+
+div.sponsor-group ul.sponsor-list.second li {
+	width:100%;
+	margin:0 2% 2% 0;
+	position:relative;
+
+			}
+
+/*Jumpnow*****/
+
+div.nav_group {
+	right: 26%;
+}
+
+.team_details .slider-inner {
+	 padding-bottom:$mob-sec-pad;
+}
+
+.slide.team_details, div.slide.personal_details{
+	.team_detail_single {
+		border:1px solid $primary-color;
+		margin-bottom:10px;
+		padding:10px;
+	}
+
+	span.team_member {
+	width:100% !important;
+
+	}
+	span.responsibility {
+	width:100% !important;
+
+	}
+
+}
+
+div.slide.team_details{
+
+	span.input {
+		width:100%;
+	}
+
+	button#del_member {
+ 
+	    position: absolute !important;
+	    background:$navy;
+	    right: -15px;
+	    top: -3px;
+	}
+	#add_member {
+    margin:0;
+	}
+}
+
+#reg_btn {
+	margin:$mob-sec-pad auto 0;
+	position:initial;
+
+}
+
+
+/***CONTACT******/
+
+div.contact_container {
+	position:initial;
+	span.input {
+		width:100%;
+	}
+}
+
+/*************DISABLE THE ANIMATION*************/
+.rocket{
+	display:none;
+}
+#sec_home:after{
+	height: 80%;
+	top: 60%;
+}
+#sec_home.timeLineAni:after{
+	@include animation(none);
+	height: 80%;
+}
+#sec_about{
+	& .border.top{
+		@include animation(none);
+		left: 0;
+	}
+	& .border.bottom{
+		&.b_right{
+			display: none;
+		}
+		&.b_left{
+			left: 0;	
+			@include animation(none);
+			width: 100%;
+		}
+	}
+	& .border.left,& .border.right{
+		@include animation(none);
+		height: 100%;
+	}
+}	
+div.timeLineAni::after{
+	@include animation(none);
+	height: 100%;
+}
+#sec_about p{
+	opacity:1;
+}
+
+
+div.section#sec_competition{
+	&.border_container{
+		& .straight_line{
+			height: $straightHeight;
+			@include animation(none);
+		}
+		& .straight_line_down{
+			height: $straightHeight;
+			@include animation(none);
+			
+		}
+		& .horizon_line{
+			@include animation(none);
+			display:none;
+		}
+		& .horizon_line_left{
+			@include animation(none);	
+			display:none;
+		}
+
+
+	}
+	& .border_container{
+		& .straight_line{
+			height: $straightHeight;
+			@include animation(none);
+		}
+		& .horizon_line{
+			@include animation(none);
+			display:none;
+		}
+	}
+
+	& .border.top,.border.bottom{
+		@include animation(none);
+		width: $borderPos;
+	}
+	& .border.left{
+		@include animation(none);
+		top:0;
+		height:$borderPos;
+		max-width:$maxWidth;
+	}
+	& .border.right.R_top{
+		@include animation(none);
+		height: 100%;
+		top: 0;
+		max-width:$maxWidth;
+	}
+	& .border.right.R_bottom{
+		@include animation(none);
+		display: none;
+	}
+
+}
+#competition_topic_slide{
+	&.slide.competition_topic .slide-inner{
+		z-index: -1;
+	}
+}
+
+
+
+
+
+
+
+
+
+
+}// end of the media query 480px

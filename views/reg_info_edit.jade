@@ -1,0 +1,103 @@
+extends layout
+block content
+	- info = result.team_details
+	form#post_form(method="post" ,enctype="multipart/form-data",action="#{result._id}")
+		//- input(type="hidden" name="_method" value="put")
+		| ID:
+		input(type="text" name="id" value="#{result._id}" style='width:60%' readonly)
+		br
+		| Team Name:
+		input(type="text" name="team_name" value="#{info.team_name}")
+		br
+		| Team Category:
+		input(type="radio" name="team_category" value="student" checked=info.team_category=="student")
+		| 學生組
+		input(type="radio" name="team_category" value="society" checked=info.team_category=="society")
+		| 社會組
+		br
+		| Leader Name:
+		input(type="text" name="team_leader_name" value="#{info.team_leader_name}")
+		br
+		| Leader Email:
+		input(type="text" name="leader_email" value="#{info.leader_email}")
+		br
+		| Mobile:
+		input(type="text" name="mobile" value="#{info.mobile}")
+		br
+		| Team members:
+		- member_count = 0
+		each m_info, index in info.team_member
+			- member_count++
+			br
+			input(type="text" name="member_name" value="#{m_info.name}")
+			input(type="text" name="member_email" value="#{m_info.email}")
+		while member_count < 4
+			- member_count++
+			br
+			input(type="text" name="member_name" placeholder="member name")
+			input(type="text" name="member_email" placeholder="member email")
+		br
+		| Agree Subscribe:
+		input(type="radio" name="agree_subscribe" value="true" checked=(info.agree_subscribe ? "checked" : undefined))
+		| Yes
+		input(type="radio" name="agree_subscribe" value="false" checked=(!info.agree_subscribe ? "checked" : undefined))
+		| No
+		br
+		| Agree Terms:
+		input(type="radio" name="agree_terms" value="true" checked=(info.agree_terms ? "checked" : undefined))
+		| Yes
+		input(type="radio" name="agree_terms" value="false" checked=(!info.agree_terms ? "checked" : undefined))
+		| No
+		br
+		| Paid ?!:
+		//- if info.paid
+		input(type="radio" name="paid" value="true" checked=(info.paid ? "checked" : undefined))
+		| Yes
+		input(type="radio" name="paid" value="false" checked=(!info.paid ? "checked" : undefined))
+		| No
+		br
+		input(type='file',name='BP_file')
+			
+		button(type="sumbit") Update
+		//- a#post_btn.btn.btn-lg.btn-primary Update
+
+		div.span6.offset3.sec_login
+			h2#error_mes 
+
+
+	script(type='text/javascript').
+		$(document).ready(function(){
+			
+			$('#post_btn').click(function(){
+			console.log("click");
+				$('#post_form').submit(function() {
+			console.log("submit");
+
+			    var formData = new FormData($(this)[0]);
+			        alert(formData);
+
+			    $.post($(this).attr("action"), formData, function(data) {
+			        alert(data);
+			    });
+
+			    return false;
+			});
+				//- alert($('#post_form').serialize());
+				//- $.ajax({
+				//- 	type:'POST',
+				//- 	url:"#{result._id}",
+				//- 	data:$('#post_form').serialize(),
+				//- 	dataType:'json',
+				//- 	success:function(data){
+				//- 		//- alert(JSON.stringify(data))
+				//- 		//- if(data.status==true) {
+				//- 		$(location).attr('href',"/reg_info/#{result._id}")
+				//- 		//- }else if(data.status==null){
+				//- 		//- 	alert('{{_("Save error. Mail already send.")}}');
+				//- 		//- }else{
+				//- 		//- 	$('#error_mes').empty().html('我們沒有提供忘記密碼的服務唷！')
+				//- 		//- }
+				//- 	}
+				//- });
+			});
+		});

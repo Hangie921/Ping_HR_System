@@ -1,0 +1,1152 @@
+/* Sections */
+div.fp-section{
+	box-sizing:border-box;
+	-moz-box-sizing:border-box;
+	-o-box-sizing:border-box;
+	-ms-box-sizing:border-box;
+	-webkit-box-sizing:border-box;
+	position:relative;
+
+	&:after{
+		content:"";
+		width:1px;
+		position:absolute;
+		left:50%;
+		display: block;
+		background-color:$primary-color
+	}
+}
+div.section-padding{
+	padding:8% 10% 0%;
+}
+div.jumpnow-slide-padding{
+	padding:5% 0% 5% 5%;
+}
+div.slide-padding{
+	padding:2.2% 0% 0% 0%;
+}
+
+div#sec_competition {
+	background:$gray url(../img/cloud-tiles.png) center center;
+
+	.slide-inner {
+		background:$gray;
+		min-height: 380px;
+	}
+}
+/****HOME******/
+.sec_home_bg{
+	background:url('../img/home_bg.jpg') no-repeat center;
+	background-size:cover;
+	-moz-background-size:cover;
+	-ms-background-size:cover;
+	-o-background-size:cover;
+	-webkit-background-size:cover;
+	position: relative;
+}
+
+// div#sec_home {
+	// background:url('../img/home_bg.jpg') no-repeat center;
+	// background-size:cover;
+	// -moz-background-size:cover;
+	// -ms-background-size:cover;
+	// -o-background-size:cover;
+	// -webkit-background-size:cover;
+	// position: relative;
+	
+// }
+//########### SG Home BG Start ###########//
+.sg_bg {
+	// @extend .sec_home_bg;
+	// background:#000 url('../img/home_bg_sg_2.jpg') no-repeat center;
+	background: url('../img/home_bg_sg_5.jpg') no-repeat center;
+	background-blend-mode: multiply;
+	background-size:cover;
+	-moz-background-size:cover;
+	-ms-background-size:cover;
+	-o-background-size:cover;
+	-webkit-background-size:cover;
+	position: relative;
+	
+}
+//########### SG Home BG End ###########//
+
+.sloganContainer {
+	margin: 90px auto 0;
+    max-width: 294px;
+	overflow:hidden;
+	color:$white;
+	height:700px;
+	padding-top:100px;
+	background:url(../img/slogan.png) no-repeat center top;
+	background-size:100% auto;
+	h2 {
+		text-indent: -9999px;
+		padding:0;
+		margin:0;
+	}
+	
+
+	.slotMachine {
+			color:$white;
+			height:80px;
+		    margin: 0px 0 0 !important;
+		    clear: both;
+		    float: left;
+		    color: #fbaf5d;
+		    font-size: 40px;
+		    display: block;
+		    width: 100%;
+		    opacity: 0.8;
+			border:1px solid $primary-color;
+			text-align: center;
+			position:relative;
+
+			
+
+		.slot {
+			color:$white;
+			font-size:35px;
+			letter-spacing: 5px;
+			height: 80px;
+			line-height:80px;
+			padding:0;
+		}
+
+
+
+
+		
+
+	}
+
+	.slot-border {
+			position:relative;
+			overflow:visible;
+			&:after {
+				content:"";
+				width:1px;
+				display: block;
+				position:absolute;
+				background-color:$secondary-color;
+				height:30px;
+				bottom:60px;
+				left:0px;
+				width:30px;
+
+			}
+
+		}
+	span.machine-border {
+	display: block;
+    background: $primary-color;
+    height: 9999px;
+    width: 1px;
+    position: absolute;
+    margin: -113px auto 0;
+    left:49%;
+
+	}
+
+
+	#slotButton3 {
+		margin-top:30px;
+	}
+
+
+}
+//########### SG Home Slogan Start ###########//
+.sloganContainer_sg_bg{
+	// @extend .sloganContainer;
+	background:url(../img/slogan_sg.png) no-repeat center top;
+	background-size:100% auto;
+
+}
+//########### SG Home Slogan End ###########//
+
+/*ABOUT SECTIOIN***/
+#sec_about {
+	background:$navy url(../img/clouds-new.png) no-repeat 28% 20%;
+	@include background-size(120% auto);
+}
+.top_animation {
+    min-height: 460px;
+}
+.rocket{
+	position:absolute;
+	width: 278px;
+    height: 221px;
+    transform:rotateZ(10deg);
+	background: url(../img/rocket-new.png) no-repeat center center;
+	@include background-size(75% auto);
+	left: -10%;
+	top: 50%;
+}
+
+#sec_about {
+ 
+	p {
+		display: block;
+		// margin-top:100px;
+		// background-color:$navy;
+		// @include orange-border;
+		// padding:50px 30px;
+
+		& a:hover {
+			color:$secondary-color !important;
+		}
+
+		span {
+			// display: block;
+			color:$primary-color;
+			font-weight: bold;
+		}
+	}
+
+	.border_container{
+		margin-top: 100px;
+		padding: 50px 30px;
+		background-color: $navy; 
+		position: relative;
+	}
+
+	
+}
+
+
+/********** Jump Now Section ********/
+
+div#sec_jumpnow {
+	background: $navy url(../img/tiles.png);
+	@include background-size(20% auto);
+
+	p {
+		@include font-large;
+	}
+
+}
+
+
+
+ul.plan_list {
+	padding:30px 0 20px;
+	counter-reset: my-badass-counter;
+
+	li {
+
+		line-height: 35px;
+
+
+		&:before {
+			width:25px;
+			height:25px;
+			vertical-align: middle;
+			margin-right:10px;
+			@include font-normal;
+			background-color:transparent;
+			border:1px solid #fff;
+			display: inline-block;
+			text-align:center;
+			font-size:60%;
+			vertical-align: middle;
+			line-height: 24px;
+			border-radius:50%;
+			content: counter(my-badass-counter);
+			counter-increment: my-badass-counter;
+		}
+	}
+	
+}
+/*COMPETITION****/
+
+.jumpnow_part1 .slide-inner {
+	border:none;
+}
+
+.slide-inner {
+	position:relative;
+	margin:0 auto 0;
+	@include orange-border;
+	
+}
+
+div.competition_topic {
+	h4 {
+		text-align: right;
+		font-size: 45px;
+		color:$primary-color;
+		font-family: $english;
+		text-transform: uppercase;
+		font-weight: 600;
+		letter-spacing: 3px;
+
+		span {
+			display: block;
+			font-size:35px;
+			color:$secondary-color;
+		}
+	}
+
+	h5{
+		color:$primary-color;
+		font-size: 26px;
+	}
+
+	.btn {
+	 margin: 30px auto 0;
+    text-align: center;
+    display: block;
+    float: none;
+    position:relative;
+    z-index: 5;
+	}
+}
+
+.info_list, .competition_topic p {
+}
+
+div#sec_competition {
+	ul{
+		padding:0;
+
+
+		li {
+
+				i {
+			&:before{
+			display: inline-block;
+			margin-right:10px;
+			color:$secondary-color;
+			}
+		  }
+		}
+	}
+}
+
+ul.competition-headings {
+	text-align:left;
+	padding:0px 0 20px;
+
+	li {
+		display: inline-block;
+		vertical-align: top;
+	}
+	a {
+		color:#999;
+		display: block;
+		padding:15px 30px;
+		letter-spacing: 10px;
+			&.selected {
+			
+
+			background-color: $primary-color;
+			color:white;
+			}
+	}
+
+
+}
+
+.slide_next.arrow {
+	z-index:5;
+	background:transparent;
+	height: 45px;
+	display:block;
+    width: 45px;
+    border: 1px solid $primary-color;
+    text-indent: -9999px;
+    @include border-radius(50%);
+    @include transition(all 0.1s);
+    right:-25px;
+    top:200px;
+    position:absolute;
+    background:$gray;
+     &:before {
+    position: absolute;
+    content: '';
+    display: block;
+    background: transparent;
+    top: 0px;
+    width: 16px;
+    height: 16px;
+   left: 25%;
+    top: 31%;
+    border-top: 1px solid $primary-color;
+    -ms-transform: rotate(45deg);
+    -webkit-transform: rotate(45deg);
+    transform: rotate(45deg);
+    }
+    &:after {
+    position: absolute;
+    content: '';
+    display: block;
+    background: transparent;
+    top: 0px;
+    width: 16px;
+    height: 16px;
+    left: 25%;
+    top: 31%;
+    border-top: 1px solid $primary-color;
+    -ms-transform: rotate(135deg);
+    -webkit-transform: rotate(135deg);
+    transform: rotate(135deg);
+    }
+
+    &:hover {
+    	background-color:$primary-color !important;
+    	&:before,&:after {
+    		border-color:$gray;
+    	}
+    }
+
+   &.slide_team_details_arrow{
+   	background:$navy ;
+   }
+
+}
+
+.slide_prev.arrow {
+	@extend .slide_next.arrow;
+	left:-20px;
+	 &:before {
+  	left: 40%;
+    top: 31%;
+    -ms-transform: rotate(-45deg);
+    -webkit-transform: rotate(-45deg);
+    transform: rotate(-45deg);
+    }
+    &:after {
+    left: 40%;
+    top: 31%;
+    -ms-transform: rotate(-135deg);
+    -webkit-transform: rotate(-135deg);
+    transform: rotate(-135deg);
+    }
+
+    
+}
+/**COMPETITION PARTNERS*******/
+div.competition_topic {
+	a.basic_btn {
+		margin-top:5%;
+		margin-left:140px !important;
+	}
+}
+
+div.sponsor-group, div.sponsor-list {
+	margin-top:30px;
+		
+	h3 {
+		color:$primary-color;
+		font-weight: bold;
+		font-size:20px;
+		letter-spacing: 3px;
+		padding-bottom:10px;
+	}
+
+	
+		li {
+			@include background-size(90% auto);
+			border:1px solid gainsboro;
+			position:relative;
+			cursor: pointer;
+			display: inline-block;
+			width:100%;
+			height:auto;
+
+			
+			vertical-align: top;
+
+			img {
+				    width: 70%;
+				    display: block;
+    				padding: 10px;
+    				margin:0 auto;
+				
+				@include box-sizing(border-box);
+			}
+
+			
+			.gotosite {
+				background:$dark-color;
+				@include border-radius(20px);
+				text-align: center;
+				padding:5px 0;
+				font-size:12px;
+				display: block;
+				margin:10px auto 0;
+				width:100px;
+				@include transition(all .25s);
+
+				&:hover {
+					background-color:gainsboro;
+					color:white;
+				}
+			}
+
+			span {
+				opacity: 0;
+				position:absolute;
+				top: 99%;
+    			width: 100%;
+    			left: 0;
+    			border-top: none !important;
+				display: block;
+				background-color:rgba(232,232,232,1);
+				@include transition(all .25s);
+				color:#999;
+				font-size:14px;
+				line-height: 20px;
+				padding:10px 10px;
+				box-shadow: 0px 0px 0px 0px gainsboro;
+				-moz-box-shadow: 0px 0px 0px 0px gainsboro;
+				-ms-box-shadow: 0px 0px 0px 0px gainsboro;
+				-o-box-shadow: 0px 0px 0px 0px gainsboro;
+				-webkit-box-shadow: 0px 0px 0px 0px gainsboro;
+			}
+
+			&:hover {
+				z-index: 5;
+				span {
+					border:1px solid gainsboro;
+					opacity:1;
+					box-shadow: 3px 10px 0px -5px gainsboro;
+					-moz-box-shadow: 3px 10px 0px -5px gainsboro;
+					-ms-box-shadow: 3px 10px 0px -5px gainsboro;
+					-o-box-shadow: 3px 10px 0px -5px gainsboro;
+					-webkit-box-shadow: 3px 10px 0px -5px gainsboro;
+
+				}
+			}
+
+			
+			
+		}
+	ul.sponsor-list.second li {
+				width:31%;
+				margin:0 2% 2% 0;
+				position:relative;
+
+				
+
+
+			}
+}
+
+
+
+/**COMPETITION DETAILS**/
+#competition_info_slide {
+
+}
+.info_list{
+	ul {
+		padding:0 0 0 40px;
+		margin-top:30px;
+
+		li {
+			float:left;
+			
+
+			margin-left:1%;
+			padding-left:20px;
+
+			.fa {
+				display: block;
+				float:left;
+				clear:both;
+				// height:50%;
+			}
+		}
+
+	}
+	
+}
+div.timeline {
+	position: relative;
+    margin-top: 25px;
+    top: 40px;
+	ul{ 
+		position:relative;
+		padding:0 0 25px;
+
+		
+		&:after {
+			display: none;
+			
+		}
+		
+		li {
+			vertical-align: bottom;
+		    display: inline-block;
+		    height:91px;
+		    line-height: 30px;
+		    min-width: 200px;
+		    position: relative;
+			width: 25%;
+			padding: 20px 0px 20px 50px;
+			background: $gray;
+			bottom:0px;
+			-webkit-border-radius: 0px;
+			-moz-border-radius: 0px;
+			border-radius: 0px;
+			border: $primary-color solid 1px;
+			-webkit-box-shadow: 3px 10px 0px -5px rgba(220,220,220,1);
+			-moz-box-shadow: 3px 10px 0px -5px rgba(220,220,220,1);
+			-ms-box-shadow: 3px 10px 0px -5px rgba(220,220,220,1);
+			-o-box-shadow: 3px 10px 0px -5px rgba(220,220,220,1);
+			box-shadow: 3px 10px 0px -5px rgba(220,220,220,1);
+			transition: all 0.5s;
+			-webkit-transition: all 0.25s;
+			-ms-transition: all 0.25s;
+			-o-transition: all 0.25s;
+			-moz-transition: all 0.25s;
+			
+			&:hover {
+				position:relative;
+				bottom:15px;
+				-webkit-box-shadow: 3px 15px 2px -3px rgba(220,220,220,0.6);
+				-moz-box-shadow: 3px 15px 2px -3px rgba(220,220,220,0.6);
+				-ms-box-shadow: 3px 15px 2px -3px rgba(220,220,220,0.6);
+				-o-box-shadow: 3px 15px 2px -3px rgba(220,220,220,0.6);
+				box-shadow: 3px 15px 2px -3px rgba(220,220,220,0.6);
+			}
+
+			&:first-child {
+				z-index:10;
+				padding-left:10px;
+			}
+			&:nth-child(2) {
+				z-index:9
+			}
+			&:nth-child(3) {
+				z-index:8
+			}
+
+			&:nth-child(4) {
+				padding-right:10px;
+				&:after {
+					display: none;
+				}
+				&:before {
+					display: none;
+				}
+			}
+			
+
+				h4 {
+					color:$primary-color;
+					margin:0;
+					font-size:18px;
+
+					span {
+					margin-top:-4px;
+					font-size:14px;
+					display:inline-block;
+					float:right;
+					line-height: 30px;
+					vertical-align: top;
+					background-color:$secondary-color;
+					border-radius:30px;
+					padding:0px 10px;
+					color:#fff !important;
+										}
+				}
+
+				p {
+					clear:both;
+					font-size:12px;
+					margin:0;
+					color:#999;
+				}
+
+				
+
+
+				&:after {
+					content: '';
+					position: absolute;
+					border-style: solid;
+					border-width: 45px 0 45px 45px;
+					border-color: transparent $gray;
+					display: block;
+					width: 0;
+					z-index: 5;
+					right: -45px;
+					top: -1px;
+				}
+
+				&:before {
+					content: '';
+					position: absolute;
+					border-style: solid;
+					border-width: 45px 0 45px 45px;
+					border-color: transparent $primary-color;
+					display: block;
+					width: 0;
+					z-index: 1;
+					right: -46px;
+					top: -1px;
+				}
+
+			}
+
+		li:last-child {
+			margin-right:0px;
+		}
+
+
+
+	}
+	
+
+}
+/* PRIZE**/
+
+#competition_prize_slide  {
+	
+	p {
+	 		color:$primary-color !important;
+	 		font-size:18px;
+	 		margin-top:30px;
+	 		text-align:center;
+	 		clear: both;
+
+	 		small {
+	 			line-height: 18px;
+	 			font-size:12px;
+	 			color:#999;
+	 		}
+	 	}
+
+	.col-md-4 .prize-single {
+		margin:30px auto 0;
+		min-height:180px;
+
+		
+	 	}
+
+	& .col-md-4:first-of-type .prize-single{
+		background: url(../img/secondplace.png) no-repeat center bottom;
+		@include background-size(200px auto);
+			
+	 	}
+	 	& .col-md-4:nth-of-type(2)  {
+
+		 	h4 {
+		 		border:1px solid $primary-color;
+		 		padding:10px;
+				font-size:36px !important;
+			}
+		
+
+		 	.prize-single{
+
+			background: url(../img/firstplace.png) no-repeat center bottom;
+			@include background-size(200px auto);
+			color:$navy;
+
+		 		}
+	 	}
+
+	 	& .col-md-4:nth-of-type(3) .prize-single{
+		background: url(../img/thirdplace.png) no-repeat center bottom;
+		@include background-size(200px auto);
+			
+		}
+	 	h4 {
+	 		display: block;
+	 		text-align: center;
+	 		font-family: $english;
+			font-weight: 600;
+			font-size:22px;
+			text-align: center;
+			display: block;
+			margin-top:15px;
+	 	}
+	 	
+
+	
+
+
+
+}
+
+
+
+
+/**JUMP******/
+
+.jumpnow_part1 {
+	a.bizplan_download {
+	float:left;
+	position:relative;
+	margin-top:70px;
+	@include orange-border;
+	min-width:240px;
+	font-size:18px;
+	height:50px;
+	cursor:pointer;
+	clear:both;
+	line-height:50px;
+	display:inline-block;
+	padding:0 20px;
+	width:auto;
+	transition: all 0.5s;
+	-webkit-transition: all 0.5s;
+	-ms-transition: all 0.5s;
+	-o-transition: all 0.5s;
+	-webkit-transition: all 0.5s;
+
+		:after {
+		content:"";
+		display: inline-block;
+		position:absolute;
+		width:20px;
+		height:20px;
+		}
+
+		
+
+		&:after {
+		content: "";
+		position:absolute;
+		display:block;
+		right: 6px;
+    	top: 4px;
+	    width: 36px;
+  		height: 36px;
+		background:url(../img/download_btn.png) no-repeat center center;
+		}
+
+
+	}
+	
+	
+}
+
+
+.jumpnow-des {
+	@include orange-border;
+	background:$navy;
+	@include box-sizing(border-box);
+
+	h3 {
+		color:$primary-color;
+		font-size: 32px;
+		text-transform: uppercase;
+		font-weight: 600;
+	}
+
+	li {
+		color:white;
+			}
+}
+.jumpnow-btn-set {
+	margin-top:20%;
+}
+
+.imready {
+	margin-top:10px;
+}
+/***FORMS*****/
+
+#sec_jumpnow {
+	h2 {
+		color:$primary-color;
+		font-weight: bold;
+		width:95%;
+		font-size:20px;
+		margin:0 auto;
+		display: block;
+		padding-bottom:10px;
+		margin-left:40px;  //move the h2 a little
+	}
+
+	.slide-inner {
+		margin:0 auto;
+		background:$navy;
+		// width: 95%; to let the col-md control the width
+		padding:20px;
+		vertical-align: top;
+		height: 100%;
+
+		&:first-child {
+			background:transparent;
+		}
+	}
+
+
+}
+.team_details {
+	
+	
+}
+.team_details_single>span {
+	clear:none;
+}
+.team_member {
+	width:100px;
+	clear:none !important;
+}
+.responsibility {
+	width:100px;
+	clear:none !important;
+}
+/*****Event Section**********/
+div#sec_events{
+	background:#fbfbfb;
+	padding-top:150px;
+	position: relative;
+}
+
+
+
+.event_single {
+	position:relative;
+	padding:10px;
+	color:#fff;
+	min-height: 300px;
+	display: block;
+	text-align: center;
+	// background:#999 url(../img/stock.jpg) no-repeat;
+	// background-blend-mode: multiply;
+	@include background-size (cover);
+	// backdrop-filter: blur(10px);
+
+
+	h3 {
+		color:$white;
+		padding:120px 0 30px;
+		font-family: $english;
+		font-weight: 600;
+	}
+	span {
+		color:$secondary-color;
+		margin-top:30px;
+		font-weight:600;
+		font-family: $english;
+	}
+	p {
+		font-size:18px;
+		line-height: 28px;
+	}
+	.front_face{
+
+		padding:10px;
+		background:#888 url(../img/stock.jpg) no-repeat;
+		@include background-size (cover);
+		background-blend-mode: multiply;
+		backdrop-filter: blur(10px);
+
+		:after {
+			content:"";
+			border:1px solid #fff;
+			width:95%;
+			height:95%;
+			display:block;
+			position:absolute;
+			top:7px;
+			left:7px;
+		}
+		//########### SG Events Start ###########//
+		.event_sg_tourism{
+		  background: #666 url(../img/industrial_tourism_sg.jpg) no-repeat;
+		  background-blend-mode: multiply;
+		  background-size: cover;
+		  -moz-background-size: cover;
+		  -webkit-background-size: cover;
+		  -ms-background-size: cover;
+		  background-size: cover;
+		  z-index: 2;
+		}
+		.event_sg_ecommerce{
+		  background: #666 url(../img/industrial_ecommerce_2_sg.jpg) no-repeat;
+		  background-blend-mode: multiply;
+		  background-size: cover;
+		  -moz-background-size: cover;
+		  -webkit-background-size: cover;
+		  -ms-background-size: cover;
+		  background-size: cover;
+		  z-index: 2;
+		}
+		.event_sg_medical{
+		  background: #666 url(../img/industrial_medical_1_sg.jpg) no-repeat;
+		  background-blend-mode: multiply;
+		  background-size: cover;
+		  -moz-background-size: cover;
+		  -webkit-background-size: cover;
+		  -ms-background-size: cover;
+		  background-size: cover;
+		  z-index: 2;
+		}
+		.event_sg_robotic{
+		  background: #666 url(../img/industrial_robotic_sg.jpg) no-repeat;
+		  background-blend-mode: multiply;
+		  background-size: cover;
+		  -moz-background-size: cover;
+		  -webkit-background-size: cover;
+		  -ms-background-size: cover;
+		  background-size: cover;
+		  z-index: 2;
+		}
+		.event_sg_smartcity{
+		  background: #666 url(../img/industrial_smartcity_1_sg.jpg) no-repeat;
+		  background-blend-mode: multiply;
+		  background-size: cover;
+		  -moz-background-size: cover;
+		  -webkit-background-size: cover;
+		  -ms-background-size: cover;
+		  background-size: cover;
+		  z-index: 2;
+		}
+		.event_sg_comingsoon{
+		  background: #666 url(../img/event_comingsoon_1.jpg) no-repeat;
+		  background-blend-mode: multiply;
+		  background-size: cover;
+		  -moz-background-size: cover;
+		  -webkit-background-size: cover;
+		  -ms-background-size: cover;
+		  background-size: cover;
+		  z-index: 2;
+		}
+		//########### SG Events End ###########//
+		.event_tw_comingsoon{
+		  @extend .event_sg_comingsoon
+		}
+
+
+	}
+	.back_face {
+		padding:30px;
+		@extend .front_face;
+		background-color:#222 !important;
+	}
+
+}
+
+
+/***CONTACT_US******/
+div.contact_container{
+	width: 100%;
+	background:#313131;
+	text-align:center;
+	position: absolute;
+	padding:30px;
+	left:0;
+	// top: 90%;
+	// bottom:-380px;
+	& .contact_header{
+		cursor: pointer;
+	}
+	h2{
+		color:#fff;
+		font-family:$english;
+		font-weight: 600;
+		border:1px solid $white;
+		width:300px;
+		padding:10px;
+	    font-size:27px;
+		margin:0 auto;
+		display: block;
+	}
+
+	.input {
+		margin:0;
+		input {
+			color:$secondary-color;
+			font-weight:normal !important;
+		}
+		label {
+			color:#fff;
+		}
+
+
+	}
+
+	textarea{
+			width:100%;
+			border:1px solid #fff;
+			background:transparent;
+			margin-top:30px;
+			padding:5px 15px;
+			color:#fff;
+			font-size:18px;
+			height: 250px;
+			outline: none;
+		
+		&::-webkit-input-placeholder{
+			color:rgba(255,255,255,0.5);
+
+			}
+		}
+	input[type="submit"]{
+		border:1px solid #fff;
+		padding:5px 20px;
+		background-color:transparent;
+		color:#fff;
+		font-family: $english;
+		text-transform: uppercase;
+		float:right;
+		margin-top:15px;
+
+	}
+	.reminder {
+		color:$secondary-color;
+	}
+}
+
+
+
+.contact-details {
+
+	font-family:$english;
+	text-align:left;
+	color:#fff;
+	h3 {
+		font-weight: bold;
+		margin-top:30px;
+		margin-bottom:30px;
+
+	}
+	
+	ul {
+		padding:0;
+
+		li{
+			font-size:14px;
+			line-height: 20px;
+			margin-bottom:20px;
+			h4{
+				font-weight: bold;
+				color:$primary-color;
+			}
+
+			i {
+				display: inline-block;
+				margin-right:10px;
+			}
+		}
+	}
+
+
+	
+}
+a.contact_us_btn {
+		margin: 30px auto 0;
+    	text-align: center;
+    	display: block;
+    	float: none;
+    	&.btn-error:after {
+		left:10%;
+		}
+		&.btn-success:after {
+		left:10%;
+		}
+	}
+
+
+
+
+
+

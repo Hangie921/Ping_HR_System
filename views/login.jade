@@ -1,0 +1,51 @@
+
+
+//- head
+//- 	meta(charset="UTF-8")
+//- 	title Backend
+//- body
+//- 	h1 BackEnd Login
+//- 	form(action="/login", enctype="multipart/form-data", method="post")
+//- 		h3 account: 
+//- 			input(type='text',name='acc',placeholder='account')
+//- 		h3 password:
+//- 			input(type='text',name='psw',placeholder='password')
+//- 		input(type='submit',value='login')
+
+extends layout
+
+block content
+	.sec_login
+		h2.form-signin-heading Please sign in
+		form#login_form.form-signin(enctype="multipart/form-data") 
+			input.form-control(type='text',name='acc',placeholder='Account')
+			input.form-control(type='password',name='psw',placeholder='Password')
+
+			a#login_btn.btn.btn-lg.btn-primary Login
+
+			div.span6.offset3.sec_login
+				h2#error_mes 
+
+	script(type='text/javascript').
+		$(document).ready(function(){
+
+			$('#login_btn').click(function(){
+				//- alert($('#login_form').serialize())
+				$.ajax({
+					type:'POST',
+					url:'/login',
+					data:$('#login_form').serialize(),
+					dataType:'json',
+					success:function(data){
+						if(data.status==true) {
+							$(location).attr('href', '/reg_info')
+						}else if(data.status==null){
+							alert('{{_("Save error. Mail already send.")}}');
+						}else{
+							$('#error_mes').empty().html('我們沒有提供忘記密碼的服務唷！')
+						}
+					}
+				});
+			});
+		});
+		

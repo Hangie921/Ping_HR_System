@@ -1,0 +1,66 @@
+//- head
+	meta(charset="UTF-8")
+	meta(name="viewport",content="width=device-width,initial-scale=1.0")
+	script(src="https://code.jquery.com/jquery-1.12.0.min.js")
+	script(src="https://cdn.datatables.net/1.10.11/js/jquery.dataTables.min.js")
+	script(src="https://cdn.datatables.net/1.10.11/js/dataTables.bootstrap.min.js")
+	link(href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css", rel='stylesheet')
+	link(href="https://cdn.datatables.net/1.10.11/css/dataTables.bootstrap.min.css", rel='stylesheet')
+	title Simple Backend
+//- body
+extends layout
+
+block content
+	div.span6.offset3.sec_login
+		h1 我是後台 後台是我 
+	if session_status 
+		div.span6.offset3.sec_login
+			h2 如有Bug，請多包涵
+			h2 空蕩的首頁
+	else
+		include login
+		
+
+
+	//- table#enroll_data.table.table-striped.table-bordered(border='1')
+	//- 	thead
+	//- 		tr
+	//- 			th 隊伍名稱
+	//- 			th 產品介紹
+	//- 			th 隊員介紹
+	//- 			th 聯絡人
+	//- 			th 聯絡人電話
+	//- 			th 聯絡人email
+	//- 			th 計畫連結
+	//- 			th 註冊時間
+	//- 	//- tbody
+	//- 	each result in results
+	//- 		- var member_counter = 1;
+	//- 		tr
+	//- 			td #{result.team_info.team_name}
+	//- 			td #{result.team_info.product_brief}
+	//- 			td
+	//- 				each member in result.team_info.member_brief
+	//- 					ul 
+	//- 					b member #{member_counter}
+	//- 					- member_counter++
+	//- 					each val, index in member
+	//- 						li= index + ': ' + val
+	//- 				- member_counter = 0
+	//- 			td #{result.team_info.contact.name}
+	//- 			td #{result.team_info.contact.phone}
+	//- 			td #{result.team_info.contact.email}
+	//- 			td test
+	//- 			td #{result.reg_time}
+
+
+	//- h3 
+	//- 	a(href='/logout') logout
+
+	//- script(type='text/javascript').
+	//- 	$(document).ready(function(){
+	//- 	    $('#enroll_data').DataTable();
+	//- 	});
+
+
+

@@ -1,0 +1,136 @@
+h1,h2,h3,h4,h5 {
+	margin-top:0;
+}
+
+h3 {
+	font-size:30px;
+}
+
+a {
+	cursor:pointer;
+}
+a:hover {
+	text-decoration:none;
+}
+
+.page-header {
+	margin-top:30px
+}
+
+.no-pad-top {
+	padding-top:0;
+}
+.fp-slidesContainer {
+     
+}
+.fp-tableCell {
+	vertical-align:top !important;
+    height:initial !important;
+}
+
+.fp-section.fp-table, .fp-slide.fp-table {
+    height:auto;
+}
+
+.fp-controlArrow.fp-prev {
+	background:transparent;
+	height: 45px;
+    width: 45px;
+    border: 1px solid $primary-color;
+    @include border-radius(50%);
+    @include transition(all 0.1s);
+    left:12%;
+    background:$gray;
+     &:before {
+    position: absolute;
+    content: '';
+    display: block;
+    background: transparent;
+    top: 0px;
+    width: 16px;
+    height: 16px;
+   left: 40%;
+    top: 31%;
+    border-top: 1px solid $primary-color;
+    -ms-transform: rotate(-45deg);
+    -webkit-transform: rotate(-45deg);
+    transform: rotate(-45deg);
+    }
+    &:after {
+    position: absolute;
+    content: '';
+    display: block;
+    background: transparent;
+    top: 0px;
+    width: 16px;
+    height: 16px;
+    left: 40%;
+    top: 31%;
+    border-top: 1px solid $primary-color;
+    -ms-transform: rotate(-135deg);
+    -webkit-transform: rotate(-135deg);
+    transform: rotate(-135deg);
+    }
+
+
+    &:hover {
+    	background:$secondary-color;
+    	color:white !important;
+    	border:0;
+		-webkit-box-shadow: -3px 14px 0px -2px rgba(220,220,220,0.7);
+			-moz-box-shadow: -3px 14px 0px -2px rgba(220,220,220,0.7);
+			-ms-box-shadow: -3px 14px 0px -2px rgba(220,220,220,0.7);
+			-o-box-shadow: -3px 14px 0px -2px rgba(220,220,220,0.7);
+			box-shadow: -3px 14px 0px -2px rgba(220,220,220,0.7);
+
+		}
+}
+
+
+.fp-controlArrow.fp-next {
+	@extend .fp-controlArrow.fp-prev; 
+
+	right:0;
+	left:initial;
+
+
+    &:hover {
+    		-webkit-box-shadow: 0px -14px 0px -2px rgba(220,220,220,0.7);
+			-moz-box-shadow: 0px -14px 0px -2px rgba(220,220,220,0.7);
+			-ms-box-shadow: 0px -14px 0px -2px rgba(220,220,220,0.7);
+			-o-box-shadow: 0px -14px 0px -2px rgba(220,220,220,0.7);
+			box-shadow: 0px -14px 0px -2px rgba(220,220,220,0.7);
+    	}
+	
+
+}
+
+/*the setting about the slotMachine*/
+.slotMachine{
+	height: 45px;
+	margin-bottom: 10px;
+}
+#slot3{
+	margin-left: 152px;
+	margin-top: -62px;
+	// height: 1.8em;
+}
+#slot3 .slot{
+	display: block;
+	// height: 1.8em;
+    // line-height: 1.8em;
+}
+#slotButton3{
+	cursor: pointer;
+}
+
+.clearfix:after {
+   content: " "; /* Older browser do not support empty content */
+   visibility: hidden;
+   display: block;
+   height: 0;
+   clear: both;
+}
+
+
+

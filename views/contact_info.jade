@@ -1,0 +1,71 @@
+extends layout
+
+block content
+	div.span6.offset3
+		h1 Hi #{user} !
+	ul.nav.nav-tabs
+		if country == 'all'
+			li.active(role='presentation')
+				a(href='/contact_info/all') For EVERYONE
+		else 
+			li(role='presentation')
+				a(href='/contact_info/all') For EVERYONE
+		if country == 'tw'
+			li.active(role='presentation')
+				a(href='/contact_info/tw') For TW
+		else 
+			li(role='presentation')
+				a(href='/contact_info/tw') For TW
+		if country == 'sg'
+			li.active(role='presentation')
+				a(href='/contact_info/sg') For SG
+		else 
+			li(role='presentation')
+				a(href='/contact_info/sg') For SG
+	br
+	table#enroll_data.table.table-striped.table-bordered(border='1')
+		thead
+			tr
+				th Nationality
+				tD Name
+				th E-mail
+				th Subject
+				th Mes
+				th Post Time
+		//- tbody
+		each result in results
+			// - var member_counter = 1;
+			tr
+				td
+					h3
+						span(class= "flag-icon"+' '+"flag-icon-"+result.contact_us.country)
+						|#{result.contact_us.country.toUpperCase()}
+				td #{result.contact_us.name}
+				td 
+					//- a(target="_blank" href='http://mail.live.com/default.aspx?page=Compose&to='+result.contact_us.email+'&subject=Re: '+result.contact_us.subject) #{result.contact_us.email}
+					a(target="_blank" href='https://outlook.office.com/?path=/mail/action/compose&to='+result.contact_us.email+'&subject=Re:'+result.contact_us.subject) #{result.contact_us.email}
+				//- td
+				//- 	each member in result.team_info.member_brief
+				//- 		ul 
+				//- 		b member #{member_counter}
+				//- 		- member_counter++
+				//- 		each val, index in member
+				//- 			li= index + ': ' + val
+				//- 	- member_counter = 0
+				td #{result.contact_us.subject}
+				td #{result.contact_us.msg}
+				td #{result.reg_time}
+
+
+	//- h3 
+	//- 	a(href='/logout') logout
+	//- script(src="../js/flag_docs.js")
+	script(type='text/javascript').
+		$(document).ready(function(){
+		    $('#enroll_data').DataTable();
+		    $('#Home, #reg_info').removeClass('active');
+		    $('#contact_info').addClass('active');
+		});
+
+
+

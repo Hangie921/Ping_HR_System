@@ -1,0 +1,83 @@
+*{
+	padding: 0;
+	margin: 0;
+	text-decoration: none;
+}
+.section p{
+	font-size: 40px;
+	color: #FFFFFF;
+	margin-left: auto;
+	margin-right: auto;
+}
+.section{
+	text-align: center;
+	color: #FFFFFF;
+	font-size: 40px;
+}
+.a {
+
+}
+#sec1{
+	background-image: url('../img/home_bg.jpg');
+	background-size:     cover;                      /* <------ */
+    background-repeat:   no-repeat;
+    background-position: center center;
+}
+#sec1 .sloganContainer{
+	width: 60%;
+	height: 50%;
+	/*padding-top: 200px;*/
+}
+#sec1 .sloganContainer h2{
+	text-align: left;
+	margin-left: 100px;
+	margin-bottom: 10px;
+}
+#sec1 a{
+	color:#000;
+}
+#sec1 a:hover{
+    color: #FFB300;
+}
+#sec1 li{
+	display: inline-block;
+	margin-left: 20px;
+}
+#sec2{
+	background-color: #FFB300;
+	color:#fff;
+}
+#sec3{
+	background-color: #FF8F00;
+	color:#fff;
+}
+#sec4{
+	background-color: #FF6F00;
+}
+#sec5{
+	background-color: #5B2424;
+}
+
+/*the setting about the slotMachine*/
+.slotMachine{
+	height: 33px;
+	margin-bottom: 10px;
+}
+#slot2 .slot{
+	height: 33px;
+}
+#slot2 .slot:nth-child(3){
+	visibility: hidden;
+}
+#slot3{
+	margin-left: 152px;
+	margin-top: -62px;
+	height: 1.5em;
+}
+#slot3 .slot{
+	display: block;
+	height: 1.5em;
+}
+#slotButton3{
+	cursor: pointer;
+}

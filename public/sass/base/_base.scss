@@ -1,0 +1,96 @@
+body {
+	font-family:$base-font-family;
+	font-size:$base-font-size;
+	line-height:1.7em;
+	letter-spacing:1px;
+	color:$base-font-color;
+
+	padding-top: 100px;
+	
+
+}
+
+// a {
+// 	color:#454545;
+// }
+
+ul,li {
+	list-style:none;
+}
+
+input, textarea, button {
+	@include border-radius (0px);
+}
+
+img.device {
+	width:100%;
+
+}
+
+/*BACKGROUND COLOUR***/
+
+.primary_bg {
+	background-color:$primary-color;
+}
+
+/*POSITIONS****/
+
+.relative-position {
+	position:relative;
+}
+
+/*FONTS****/
+
+.en_para {
+	font-family:$english;
+}
+.cn_para {
+	font-family:$chinese;
+}
+
+.primary-text {
+	color:$primary-color;
+}
+.white-text {
+	color:#ffffff;
+}
+.font-fatfrank{
+	font-family: "fatfrank", sen-serif;
+}
+
+
+
+
+/**COLUMNS SETTINGS***/
+// .container {
+// 	min-width:100%;
+// }
+.col-centered{
+float: none;
+margin: 0 auto;
+clear:both;
+}
+
+/****BUTTONS********/
+
+.basic_btn {
+	@include button;
+}
+
+.hide {
+	display:none
+}
+
+
+.no-pad {
+	padding:0 !important;
+}
+
+.zindex {
+	z-index:3;
+	position:relative
+}
+
+.add-border-pad {
+	padding:20px;
+}

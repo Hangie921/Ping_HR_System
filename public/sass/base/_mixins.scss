@@ -1,0 +1,100 @@
+/* Mixins */
+
+@mixin border-radius ($radius) {
+	-moz-border-radius:$radius;
+	-webkit-border-radius:$radius;
+	-ms-border-radius:$radius;
+	-o-border-radius:$radius;
+	border-radius:$radius;
+}
+@mixin animation ($ani) {
+	-moz-animation:$ani;
+	-webkit-animation:$ani;
+	-ms-animation:$ani;
+	-o-animation:$ani;
+	animation:$ani;
+}
+@mixin transition($trans){
+	-moz-transition:$trans;
+	-webkit-transition:$trans;
+	-ms-transition:$trans;
+	-o-transition:$trans;
+	transition:$trans;
+}
+@mixin transform($transform){
+	-moz-transform:$transform;
+	-webkit-transform:$transform;
+	-ms-transform:$transform;
+	-o-transform:$transform;
+	transform:$transform;	
+}
+
+@mixin background-size ($bg-size){
+	background-size:$bg-size;
+	-moz-background-size:$bg-size;
+	-webkit-background-size:$bg-size;
+	-ms-background-size:$bg-size;
+	background-size:$bg-size;
+}
+
+@mixin box-sizing ($border-box){
+	box-sizing:border-box;
+	-ms-box-sizing:border-box;
+	-moz-box-sizing:border-box;
+	-webkit-box-sizing:border-box;
+	-o-box-sizing:border-box;
+}
+
+
+
+@mixin add-border ($size, $color, $position) {
+	@if $position == "all" {
+		border: $size solid $color;
+		} @else if $position == "top" {
+		border-top: $size solid $color;
+		} @else if $position == "bottom" {
+		border-bottom: $size solid $color;
+		} @else if $position == "right" {
+		border-right: $size solid $color;
+		} @else if $position == "left" {
+		border-left: $size solid $color;
+		} @else if $position == "top-bottom" {
+		border-top: $size solid $color;
+		border-bottom: $size solid $color;
+		} @else if $position == "right-left" {
+		border-right: $size solid $color;
+		border-left: $size solid $color;
+		}
+
+}
+
+@mixin add-background($color) {
+	background:$color;
+	@if $color == $light-color {
+		color:#666;
+	} @else {
+		color:#fff;
+	}
+}
+
+
+
+
+@mixin font-large {
+	font-size:$font-large;
+	line-height:40px;
+}
+
+@mixin font-normal {
+	font-size:$font-normal;
+	line-height:28px;
+}
+
+
+@mixin button {
+
+}
+
+@mixin orange-border {
+	border:1px none $primary-color;
+}

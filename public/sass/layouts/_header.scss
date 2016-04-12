@@ -1,0 +1,132 @@
+header {
+	position:fixed !important;
+	top:0;
+	left:0;
+	float:left;
+	width:100% !important;
+	margin:20px auto;
+	padding: 0 $standard-padding !important;
+	div {
+		float:left;
+		padding:0 !important;
+	}
+	a.navbar-brand {
+	 font-family: "fatfrank", sen-serif;
+	 color:$primary-color;
+    display: block;
+    width: 220px;
+    height: 50px;
+    padding: 0;
+    font-size: 35px;
+    margin: 20px 0;
+		
+	
+	}
+	a{
+		@include transition(all 1s);
+	}
+	// @include transition(all 1s);
+}
+
+div.main-menu {
+	float:right;
+	position: absolute;
+	top: 0;
+	right: 0;
+}
+
+ul.menu {
+	margin:0;
+	padding:0;
+	min-width:600px;
+	float:right;
+	text-align:right;
+	li{
+	display:inline-block;
+    margin: 13px 0 0 5%;
+    text-transform: uppercase;
+    text-align: right;
+    vertical-align: top;
+    background-color:transparent;
+
+    &.active a {
+    	font-weight: 600;
+    }
+
+    
+	
+		a {
+			position: relative;
+			display: inline-block;
+			padding:0;
+			outline: none;
+			color: #fff;
+			text-decoration: none;
+			text-transform: uppercase;
+			letter-spacing: 1px;
+			font-weight: 300;
+			text-shadow: 0 0 1px rgba(255,255,255,0.3);
+			font-family: $english;
+			font-size:14px;
+
+			&:after{
+				position: absolute;
+				top: 100%;
+				left: 0;
+				width: 100%;
+				height: 4px;
+				background: $primary-color;
+				content: '';
+				opacity: 0;
+				-webkit-transition: opacity 0.3s, -webkit-transform 0.3s;
+				-moz-transition: opacity 0.3s, -moz-transform 0.3s;
+				transition: opacity 0.3s, transform 0.3s;
+				-webkit-transform: translateY(10px);
+				-moz-transform: translateY(10px);
+				transform: translateY(10px);
+			}
+
+			&:hover {
+				font-weight: 600;
+			
+			}
+
+			
+			
+					}
+
+
+		&  a:hover::after, &.active a:after {
+				
+				opacity: 1 !important;
+				-webkit-transform: translateY(0px);
+				-moz-transform: translateY(0px);
+				transform: translateY(0px);
+				color:white;
+			
+			}
+
+
+
+
+	}
+	
+}
+
+
+#header,#header ul li a {
+	transition:color .5s, opacity .5s;
+}
+#header.fff{
+	background-color: transparent;
+}
+#header.fff ul li a{
+	color: #333;
+}
+#header.orange{
+	background-color: transparent;
+}
+#header.orange ul li a{
+	color: #fff;
+}
+

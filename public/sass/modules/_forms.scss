@@ -1,0 +1,396 @@
+/* Searchbox */
+
+/************For the error message .reminder****************/
+.input__label .input__label-content.reminder{
+	left: 70px;
+}
+
+.team_member .input__label .input__label-content.reminder{
+	left:35px;
+}
+
+/*****PERSONAL DESTAILS********/
+
+.personal_details_group {
+
+	padding:30px;
+	span.input {
+		display: block !important;
+		margin:0 auto !important;
+		float:none !important;
+		width:100%;
+	}
+
+	input[type=submit] {
+		@include button;
+		margin-left:100px;
+	}
+
+	.iagree {
+		float:left;
+		clear:both;
+	}
+	
+}
+
+/***GROUP FORM*****/
+
+div.slide.team_details, div.slide.personal_details {
+	input.input__field--hoshi{
+		font-family:$base-font-family;
+		min-height:50px;
+		color:$secondary-color;
+		letter-spacing: 1px;
+		float:left;
+		max-width: none;
+		margin-top:10px;
+		padding-left:3px;
+		font-size:18px;
+		font-weight: normal;
+	}
+	span.input {
+		float:left;
+		clear:both;
+		margin:0;
+
+		max-width: initial;
+	}
+	span {
+		font-size:14px;
+		padding:0;
+		color:$white;
+	}
+	label {
+		font-size:14px;
+	}
+
+	.input__field--hoshi {
+		margin:0;
+		padding:15px 15px 15px 0 ;
+		
+	}
+	.input__label--hoshi::before, .input__label--hoshi::after {
+ 
+	}
+
+	#input-4-error {
+	position: absolute;
+    right: 0;
+    display: inline;
+    top: 0;
+    font-size: 11px;
+    margin-top: 11px;
+    color: green;
+    font-weight: normal;
+	}
+
+	.input__label--hoshi::before, .input__label--hoshi::after {
+		left:-1px;
+	}
+
+	input[type=file] {
+	padding:23px 0 30px 101px;
+
+	}
+
+	textarea {
+		background:transparent;
+		color:$secondary-color;
+		border:1px solid #fff;
+		width:100%;
+		min-height: 250px;
+		line-height: 20px;
+		padding:10 10px;
+		letter-spacing: 1px;
+		outline:none;
+			}
+
+	span.team_member {
+		width: 20%;
+    margin-right: 30px;
+	}
+	span.responsibility {
+		width: 60%
+	}
+
+	.reminder {
+		font-size:11px;
+		color:#FFCB94;
+		display: inline-block;
+		margin-left:5px;
+	}
+
+	button#del_member {
+		float:right;
+		margin:15px;
+		width:30px;
+		height:30px;
+		background:transparent;
+		border:1px solid #fff;
+		@include border-radius(50%);
+		text-indent: -9999px;
+		position:relative;
+		
+		&:after {
+			content:"-";
+			width:10px;
+			height:2px;
+			background:#fff;
+			margin:0 auto;
+			position:absolute;
+			left:9px;
+			top:47%;
+		}
+
+		&:hover{
+			background:#fff;
+
+			&:after {
+				background:$primary-color;
+			}
+		}
+	
+	}
+	button:focus {
+		outline:none;
+	}
+}
+
+#add_member {
+	margin-right: 9px;
+	font-size:14px;
+	background:transparent;
+	display:block;
+	border:none;
+	color:#fff;
+	float:right;
+		&:after {
+			margin-left:5px;
+			    width: 30px;
+   			 height: 30px;
+    		font-size: 29px;
+    		line-height: 30px;
+			text-align: center;
+			content:' + ';
+			border:1px solid #fff;
+			@include border-radius(50%);
+			display: inline-block;
+			 top: 7px;
+    		position: relative;
+		}
+	&:hover {
+		&:after {
+			background:#fff;
+			color:$primary-color !important;
+		}
+	}
+}
+
+.nav_group {
+	position: absolute;
+    right: 50px;
+    bottom: -24px;
+	
+}
+.next_btn {
+	font-size:14px;
+	float:left;
+	margin-top:40px;
+	width:87px;
+	padding:10px;
+	text-align:center;
+	display: block;
+	background:$primary-color;
+	max-height:50px;
+	border-top:1px solid $primary-color;
+	border-left:1px solid $primary-color;
+	border-bottom:1px solid $primary-color;
+	position:relative;
+	
+
+	
+	&:before, &:after {
+    content: "";
+    position: absolute;
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-color: transparent;
+    border-bottom: 0;
+  }
+
+  /* Stroke */
+  &:before {
+    
+
+    /* If 1px darken stroke slightly */
+   right: -33px;
+    top: -1px;
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 25px 0 25px 33px
+    ;
+border-color: transparent transparent transparent $primary-color;
+
+  }
+
+  	&:hover {
+		background:$primary-color;
+	}
+  
+
+  /* Fill */
+  &:after {
+
+	right: -31px;
+    top: 0;
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 24px 0 24px 31px ;
+    border-color: transparent transparent transparent $primary-color;
+
+  
+  
+  }
+
+
+  &:hover {
+  	background-color: $dark-orange;
+  	border-color:$dark-orange;
+  	color:white;
+  	
+  	&:after, &:before{
+		
+  		border-color:transparent transparent transparent $dark-orange;
+  	}
+  }
+
+ 
+
+	
+}
+
+.prev_btn {
+	@extend .next_btn;
+	border-left:none;
+	border-right:1px solid $primary-color;
+	background:$navy;
+	
+
+		&:before {
+		left: -33px;
+    	top: -1px;
+    	 border-width: 25px 33px 25px 0;
+		border-color: transparent $primary-color transparent transparent;
+		}
+		&:after {
+		left: -31px;
+    	top: 0;
+    	border-width: 24px 31px 24px 0;
+    	border-color: transparent $navy transparent transparent;
+		
+		}
+	
+	 
+  	&:after, &:before{
+		
+  		border-color:transparent $dark-orange transparent transparent $dark-orange;
+  	}
+
+  	&:hover:after {
+  		border-color: transparent $dark-orange transparent transparent;
+  	}
+  
+
+}
+
+button.submit_btn {
+	float:left;
+	max-width:initial;
+	padding:15px 40px;
+	width:329px;
+	background:$primary-color !important;
+}
+
+
+#reg_btn {
+    margin: 30px 0 0;
+    right: 0px;
+	&.btn-error:after {
+		left:10%;
+	}
+	&.btn-success:after {
+		left:10%;
+	}
+
+}
+
+/****FOR CUSTOMIZED FILE INPUT********/
+$file-upload-size: 200px;
+
+.custom-file-upload-hidden {
+    display: none;
+    visibility: hidden;
+    position: absolute;
+    left: -9999px;
+}
+.custom-file-upload {
+    display: block;
+    width: auto;
+    font-size: 16px;
+    margin-top: 30px;
+    //border: 1px solid #ccc;
+    label {
+        display: block;
+        margin-bottom: 5px;
+    }
+}
+
+.file-upload-wrapper {
+    position: relative; 
+    margin-bottom: 5px;
+    //border: 1px solid #ccc;
+}
+.file-upload-input {
+    width: 50%;
+    line-height: 52px;
+	text-align:center;
+    font-size:13px;
+    height: 52px;
+    display: block;
+    color: $navy;
+    padding: 10px ; 
+    border: 1px solid #fff;
+    background-color: transparent; 
+    @include transition(all 0.2s ease-in); 
+    float: left; /* IE 9 Fix */
+    &:hover, &:focus { 
+        background-color: darken(white, 30);
+        outline: none; 
+    }
+}
+.file-upload-button {
+    cursor: pointer; 
+    display: inline-block; 
+    color: $navy;
+    width:50%;
+    font-size: 16px;
+    text-transform: uppercase;
+    padding: 11px 20px; 
+    border: none;
+    margin-left: -1px;  
+    background-color: white; 
+    float: left; /* IE 9 Fix */
+    @include transition(all 0.2s ease-in);
+    &:hover {
+        background-color: darken(white, 30);
+    }
+
+    
+}
+
+input:-webkit-autofill, textarea:-webkit-autofill, select:-webkit-autofill {
+    background-color: transparent !important;
+	}
