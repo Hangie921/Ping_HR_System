@@ -1,0 +1,73 @@
+include ../default/head
+
+body
+  .navbar.navbar-inverse.navbar-fixed-top
+      .container
+          img(href='http://i.imgur.com/Hgsbi4j.png')
+          .navbar-header
+              button.navbar-toggle(type='button', data-toggle='collapse', data-target='.navbar-collapse')
+                  span.icon-bar
+                  span.icon-bar
+                  span.icon-bar
+              a.navbar-brand(href='/') CMS
+          .collapse.navbar-collapse
+              ul.nav.navbar-nav
+                //- #{menuStr}
+
+                li#Home.active
+                      a(href='/') Home
+                  li#reg_info
+                      a(href='/reg_info') Registration Info
+                  li#contact_info
+                      a(href='/contact_info/all') Contact Info
+                  //- each result in sess_fun_data
+                  //-   li #{result.name}
+
+              ul.nav.navbar-nav.navbar-right
+                  li
+                      a(href='/logout') Logout
+
+  div.container
+    table
+      ul
+        each val, index in ['zero', 'one', 'two']
+          li= index + ': ' + val
+      ul#showJson
+
+
+
+      //- li#menuDiv
+      //-   #{menuAry}
+      
+      //- each m in menuAry
+      //-   li=m.name
+      //- each sfm in sessFunData
+      //-   li=sfm.name
+          //- if(sfm.function.length > 0){
+          //-   ul
+          //-     each sfmF2 in sfm.meun
+          //-       li=sfmF2.name
+          //- }
+          //- each menu in menuAry
+          //-   a(href='/admin/post/' ) #{menu.age} - #{menu.phone}
+
+      script(type='text/javascript').
+        $(document).ready(function(){
+          //由session取User資訊
+          $.ajax({
+            type:'GET',
+            url:'/meunByUser',
+            success:function(data){
+              alert(JSON.stringify(data, null, 2));
+              //- console.log(JSON.stringify(data, null, 2));
+            },
+            error:function(err){
+              console.log(err);
+            }
+          });
+        });
+
+        
+      //- each result in results
+      //-   li #{result.sess_fun_data}
+

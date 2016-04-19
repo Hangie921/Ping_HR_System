@@ -8,17 +8,18 @@
 	link(href="https://cdn.datatables.net/1.10.11/css/dataTables.bootstrap.min.css", rel='stylesheet')
 	title Simple Backend
 //- body
-extends layout
+//- extends layout
+include ../default/head
 
 block content
 	div.span6.offset3.sec_login
 		h1 我是後台 後台是我 
-	if session_status 
-		div.span6.offset3.sec_login
-			h2 如有Bug，請多包涵
-			h2 空蕩的首頁
-	else
-		include login
+	//- if session_status 
+	//- 	div.span6.offset3.sec_login
+	//- 		h2 如有Bug，請多包涵
+	//- 		h2 空蕩的首頁
+	//- else
+	include login
 		
 
 

@@ -1,0 +1,31 @@
+{
+    "default": {
+        "port": 3000,
+        "db": "mongodb://192.168.60.65/test",
+        "logFile": "D://logs//all-logs.log"
+    },
+
+    "development": {
+        "port": 3001,
+        "db": "mongodb://192.168.60.65/test",
+        "logFile": "D://logs//all-logs.log"
+    },
+
+    "test": {
+        "port": 3002,
+        "db": "mongodb://192.168.60.65/test",
+        "logFile": "D://logs//all-logs.log"
+    },
+
+    "staging": {
+        "port": 3003,
+        "db": "mongodb://192.168.60.65/test",
+        "logFile": "D://logs//all-logs.log"
+    },
+
+    "production": {
+        "port": 3004,
+        "db": "mongodb://192.168.60.65/test",
+        "logFile": "D://logs//all-logs.log"
+    }
+}
