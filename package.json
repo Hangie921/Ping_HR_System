@@ -17,6 +17,7 @@
     "mongoose-session": "0.0.4",
     "morgan": "~1.6.1",
     "pinglib": "file:..\\pinglib",
-    "serve-favicon": "~2.3.0"
+    "serve-favicon": "~2.3.0",
+    "winston": "^2.2.0"
   }
 }

@@ -3,7 +3,7 @@ var config = require('./config/config').config();
 var mongoose = require("mongoose");
 var path = require('path');
 var favicon = require('serve-favicon');
-var logger = require('pinglib').logger;
+var logger = require('./common/logger');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 
@@ -11,7 +11,7 @@ var session      = require('express-session');
 
 
 var MongoStore = require('connect-mongo')(session);
-mongoose.connect(global.config.db);
+mongoose.connect(config.db);
 var app = express();
 
 app.use(require('express-session')({
