@@ -58,8 +58,9 @@ body
             type:'GET',
             url:'/meunByUser',
             success:function(data){
-              alert(JSON.stringify(data, null, 2));
+              //- alert(JSON.stringify(data));
               //- console.log(JSON.stringify(data, null, 2));
+              $('#showJson').text(JSON.stringify(data));
             },
             error:function(err){
               console.log(err);
