@@ -41,7 +41,8 @@ block content
 							//登入成功 user info & user menu 已經存入session
 							$(location).attr('href', '/layout');
 						}else{
-							$('#error_mes').text(data.values);
+							//- $('#error_mes').text(data.msg);
+							$('#error_mes').text(data.msg);
 						}
 					},
 					error:function(err){

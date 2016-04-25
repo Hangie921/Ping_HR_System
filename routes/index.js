@@ -1,6 +1,16 @@
 var express = require('express');
 var router = express.Router();
+
+
+// pinglib
 var pinglib = require('pinglib');
+var PingUser = pinglib.User;
+var GroupService = pinglib.GroupService;
+
+// varaiables
+// var routerName = 'users';
+// var url = '/' + routerName;
+// var urlApi = '/api' + url;
 
 //登入頁面
 router.get('/', function(req, res, next) {
@@ -42,13 +52,14 @@ router.post('/login', function(req, res, next) {
 //登入後 畫面輸出
 router.get('/layout', function(req, res, next) {
     pinglib.SessionService.getUserSession(req, res, function(sess_user_data) {
+    	// console.log(sess_fun_data.values);
         res.render('layout', { sess_user_data: sess_fun_data.values });
     });
 });
 
 //登出
 router.get('/logout', function(req, res, next) {
-    console.log("logout...");
+    // console.log("logout...");
     pinglib.SessionService.cleanUserSession(req, res, function(argument) {
         res.redirect('/');
     });
@@ -56,7 +67,26 @@ router.get('/logout', function(req, res, next) {
 
 router.get('/meunByUser', function(req, res, next) {
     pinglib.SessionService.getMenuSession(req, res, function(sess_fun_data) {
+    	// console.log(sess_fun_data.values);
         res.json(sess_fun_data.values);
+    });
+});
+
+router.get('/groupBySys', function(req, res, next) {
+	// console.log("groupBySys in...."+JSON.stringify(req.body));
+	console.log("groupBySys in....");
+
+    pinglib.GroupService.getGroup(0, function(groupJson) {
+        res.json(groupJson);
+    });
+});
+
+router.get('/groupListBySys', function(req, res, next) {
+	// console.log("groupBySys in...."+JSON.stringify(req.body));
+	console.log("groupBySys in....");
+
+    pinglib.GroupService.getGroupList(0, function(groupJson) {
+        res.json(groupJson);
     });
 });
 module.exports = router;

@@ -32,8 +32,25 @@ body
       ul
         each val, index in ['zero', 'one', 'two']
           li= index + ': ' + val
-      ul#showJson
+      ul#showMenuJson
 
+      ul#showGroupJson
+      ul#showGroupList
+
+      div#in
+      div.orgChart#chart
+      div#consoleOutput
+  div.hidden#fancy_add
+    form
+      h1.title_lb
+        div.span12#add_nodo
+          //- p.notice span3
+          input#new_node_name(type='text',name='node_name')
+          input#new_node_title(type='text',name='title_name')
+          //- div.span12
+          //-   a#add_node.aqua_btn span3 add
+            //- a#add_node.aqua_btn span3(href='/dashboard') add
+    i.close x
 
 
       //- li#menuDiv
@@ -60,12 +77,191 @@ body
             success:function(data){
               //- alert(JSON.stringify(data));
               //- console.log(JSON.stringify(data, null, 2));
-              $('#showJson').text(JSON.stringify(data));
+              $('#showMenuJson').text(JSON.stringify(data));
             },
             error:function(err){
               console.log(err);
             }
           });
+
+          $.ajax({
+            type:'GET',
+            url:'/groupBySys',
+            //- data:{
+            //-   system_praameter:0,
+            //- },
+            //- dataType:'json',
+            success:function(data){
+              //- alert(JSON.stringify(data));
+              //- alert(data);
+              $('#showGroupJson').text(JSON.stringify(data));
+            },
+            error:function(err){
+              console.log(err);
+            }
+          });
+
+
+          //測試成功的  套件位置  https://github.com/sselvamani22/jOrgChart
+          $.ajax({
+            type:'GET',
+            url:'/groupListBySys',
+            //- data:{
+            //-   system_praameter:0,
+            //- },
+            //- dataType:'json',
+            success:function(data){
+              //- alert(JSON.stringify(data));
+              //- alert(data);
+              $('#showGroupList').text(JSON.stringify(data));
+                //正常資料傳入  
+                loadjson(JSON.stringify(data));
+
+                init_tree();
+          
+                scroll();
+            },
+            error:function(err){
+              console.log(err);
+            }
+          });
+          var node_to_edit;
+
+          // read json and convert to html formate
+          // Here I am laod the json format to html structure. You no need to do this incase you have order list HTML in you body
+          //Start Load HTML
+          function loadjson(jsonList) {
+            var items = [];
+            var data = TAFFY(jsonList);
+
+            data({
+              "parent_id": ""
+            }).each(function(record, recordnumber) {
+              loops(record);
+            });
+            //start loop the json and form the html
+            function loops(root) {
+              if (root.parent_id == "") {
+                items.push("<li class='unic" + root.id + " root' id='" + root.name + "'><span class='label_node'><a href=''>" + root.name + "</a></br><i>" + root.level + "</i></span><div class='details'><p><strong>rank:</strong>" + root.rank + "</p><p><strong>department:</strong>" + root.department + "</p></div>");
+              } else {
+                items.push("<li class='child unic" + root.id + "' id='" + root.name + "'><span class='label_node'><a href=''>" + root.name + "</a></br><i>" + root.level + "</i></span><div class='details'><p><strong>rank:</strong>" + root.rank + "</p><p><strong>department:</strong>" + root.department + "</p></div>");
+              }
+              var c = data({
+                "parent_id": root._id
+              }).count();
+              if (c != 0) {
+                items.push("<ul>");
+                data({
+                  "parent_id": root._id
+                }).each(function(record, recordnumber) {
+                  loops(record);
+                });
+                items.push("</ul></li>");
+              } else {
+                items.push("</li>");
+              }
+            } // End the generate html code
+
+            //push to html code
+            $("<ul/>", {
+              "id": "org",
+              "style": "float:right;",
+              html: items.join("")
+            }).appendTo("body");
+          }
+
+          function init_tree() {
+            var opts = {
+              chartElement: '#chart',
+              dragAndDrop: true,
+              expand: true,
+              control: true,
+              rowcolor: false
+            };
+            $("#chart").html("");
+            $("#org").jOrgChart(opts);
+          }
+
+          function scroll() {
+            $(".node").click(function() {
+              $("#chart").scrollTop(0)
+              $("#chart").scrollTop($(this).offset().top - 140);
+            })
+          }
+
+
+
+          //forms behavior
+          $("#new_node_name, #edit_node_name").on("keyup", function(evt) {
+          alert(evt);
+            var id = $(this).attr("id");
+            if ($(this).val() != '') {
+              if (id == "new_node_name") {
+                $("#add_node").show();
+              } else {
+                $("#edit_node").show();
+              }
+            } else {
+              if (id == "new_node_name") {
+                $("#add_node").hide();
+              } else {
+                $("#edit_node").hide();
+              }
+            }
+          });
+
+
+          //http://www.jqueryscript.net/chart-graph/Create-An-Editable-Organization-Chart-with-jQuery-orgChart-Plugin.html
+          //- $(function(){
+          //-   org_chart = $('#orgChart').orgChart({
+          //-     data: testData, // your data
+          //-     showControls: true, // display add or remove node button.
+          //-     allowEdit: true, // click the node's title to edit
+          //-     onAddNode: function(node){},
+          //-     onDeleteNode: function(node){},
+          //-     onClickNode: function(node){},
+          //-     newNodeText: 'Add Child' // text of add button
+          //-   });
+          //- });
+
+
+          //- var testData = [
+          //-     {id: 1, name: 'My Organization', parent: 0},
+          //-     {id: 2, name: 'CEO Office', parent: 1},
+          //-     {id: 3, name: 'Division 1', parent: 1},
+          //-     {id: 4, name: 'Division 2', parent: 1},
+          //-     {id: 6, name: 'Division 3', parent: 1},
+          //-     {id: 7, name: 'Division 4', parent: 1},
+          //-     {id: 8, name: 'Division 5', parent: 1},
+          //-     {id: 5, name: 'Sub Division', parent: 3},
+          //- ];
+          //- $(function(){
+          //-     org_chart = $('#orgChart').orgChart({
+          //-         data: testData,
+          //-         showControls: true,
+          //-         allowEdit: true,
+          //-         onAddNode: function(node){ 
+          //-             log('Created new node on node '+node.data.id);
+          //-             org_chart.newNode(node.data.id); 
+          //-         },
+          //-         onDeleteNode: function(node){
+          //-             log('Deleted node '+node.data.id);
+          //-             org_chart.deleteNode(node.data.id); 
+          //-         },
+          //-         onClickNode: function(node){
+          //-             log('Clicked node '+node.data.id);
+          //-         }
+
+          //-     });
+          //- });
+
+          //- // just for example purpose
+          //- function log(text){
+          //-     alert(text);
+          //-     $('#consoleOutput').append('<p>'+text+'</p>')
+          //- }
+          
+
         });
 
         
