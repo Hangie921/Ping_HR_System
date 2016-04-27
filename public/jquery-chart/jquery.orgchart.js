@@ -126,7 +126,6 @@
 
         $nodeDiv.click(function() {
             var $this = $(this);
-            alert($this);
             opts.nodeClicked($this.data("orgchart-node"), $this);
             if (opts.interactive) {
                 var $row = $this.closest("tr");

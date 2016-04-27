@@ -7,6 +7,8 @@ var pinglib = require('pinglib');
 var PingUser = pinglib.User;
 var GroupService = pinglib.GroupService;
 
+router.use(require('./company'));
+
 // varaiables
 // var routerName = 'users';
 // var url = '/' + routerName;
@@ -21,6 +23,7 @@ router.get('/', function(req, res, next) {
         console.log(menu_data.value);
     });
     pinglib.SessionService.getUserSession(req, res, function(sess_user_data) {
+    	console.log("sess_user_data.values="+sess_user_data.values);
         if (null == sess_user_data.values) {
             res.render('index', { title: 'Express' }); //進入輸入頁面
         } else {

@@ -1,0 +1,25 @@
+.navbar.navbar-inverse.navbar-fixed-top
+      .container
+          img(href='http://i.imgur.com/Hgsbi4j.png')
+          .navbar-header
+              button.navbar-toggle(type='button', data-toggle='collapse', data-target='.navbar-collapse')
+                  span.icon-bar
+                  span.icon-bar
+                  span.icon-bar
+              a.navbar-brand(href='/') CMS
+          .collapse.navbar-collapse
+              ul.nav.navbar-nav
+                //- #{menuStr}
+
+                li#Home.active
+                      a(href='/layout') layout
+                  li#reg_info
+                      a(href='/company') company
+                  li#contact_info
+                      a(href='/contact_info/all') Contact Info
+                  //- each result in sess_fun_data
+                  //-   li #{result.name}
+
+              ul.nav.navbar-nav.navbar-right
+                  li
+                      a(href='/logout') Logout

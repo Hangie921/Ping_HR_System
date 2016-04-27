@@ -1,0 +1,93 @@
+include ../default/head
+
+body
+  block main_menu
+      include ../default/menu.jade
+
+  div.container
+    table
+      ul
+        each val, index in ['AAA', 'BBB', 'CCC']
+          li= index + ': ' + val
+      ul#showMenuJson
+
+      ul#showGroupJson
+      ul#showGroupList
+      each company,index in companys
+        ul
+          button(onclick='update(#{index},"edit")') 修改
+          &nbsp;&nbsp;&nbsp;
+          button(onclick='update(#{index},"remove")') 刪除
+          li 第#{index}筆資料
+          li uuid=
+            input(type='text',name='#{index}_id',value='#{company._id}')
+            input(type='hidden',name='#{index}system_parameter',value='#{company.system_parameter}')
+            ,name=
+            input(type='text',name='#{index}name',value='#{company.name}')
+          li address=
+            input(type='text',name='#{index}address',value='#{company.address}')
+          li phone1=
+            input(type='text',name='#{index}phone1',value='#{company.phone1}')
+            ,phone2=
+            input(type='text',name='#{index}phone2',value='#{company.phone2}')
+          li fax=
+            input(type='text',name='#{index}fax',value='#{company.fax}')
+          li url=
+            input(type='text',name='#{index}url',value='#{company.url}')
+            ,id_number=
+            input(type='text',name='#{index}id_number',value='#{company.id_number}')
+      ul
+        li 
+          button(onclick='update("","new")') 新增
+          input(type='hidden',name='system_parameter',value=0)
+        
+        li uuid=
+          input(type='text',name='_id',value='#{genId}')
+        
+        li name=
+          input(type='text',name='name')
+        li address=
+          input(type='text',name='address')
+        li phone1=
+          input(type='number',name='phone1')
+        li phone2=
+          input(type='number',name='phone2')
+        li fax=
+          input(type='number',name='fax')
+        li url=
+          input(type='text',name='url',value='url')
+        li id_number=
+          input(type='number',name='id_number')
+
+
+      script(type='text/javascript').
+        var update = function (opt_id,act){
+          $.ajax({
+            type:'POST',
+            url:'/company/'+$('input[name='+opt_id+'_id]').val()+'/'+act,
+            data: {
+              '_id':$('input[name='+opt_id+'_id]').val(),
+              'system_parameter':$('input[name='+opt_id+'system_parameter]').val(),
+              'address':$('input[name='+opt_id+'address]').val(),
+              'name':$('input[name='+opt_id+'name]').val(),
+              'phone1':$('input[name='+opt_id+'phone1]').val(),
+              'phone2':$('input[name='+opt_id+'phone2]').val(),
+              'fax':$('input[name='+opt_id+'fax]').val(),
+              'url':$('input[name='+opt_id+'url]').val(),
+              'id_number':$('input[name='+opt_id+'id_number]').val()
+            },
+            success:function(data){
+                window.location = data.redirect;
+            },
+            error:function(err){
+              console.log(err);
+            }
+          });
+        }
+        var del = function (val){
+          alert('success...'+val);
+        }
+        $(document).ready(function(){
+        
+
+        });

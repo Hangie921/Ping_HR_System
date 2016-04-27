@@ -1,31 +1,33 @@
 include ../default/head
 
 body
-  .navbar.navbar-inverse.navbar-fixed-top
-      .container
-          img(href='http://i.imgur.com/Hgsbi4j.png')
-          .navbar-header
-              button.navbar-toggle(type='button', data-toggle='collapse', data-target='.navbar-collapse')
-                  span.icon-bar
-                  span.icon-bar
-                  span.icon-bar
-              a.navbar-brand(href='/') CMS
-          .collapse.navbar-collapse
-              ul.nav.navbar-nav
-                //- #{menuStr}
+  block main_menu
+      include ../default/menu.jade
+  //- .navbar.navbar-inverse.navbar-fixed-top
+  //-     .container
+  //-         img(href='http://i.imgur.com/Hgsbi4j.png')
+  //-         .navbar-header
+  //-             button.navbar-toggle(type='button', data-toggle='collapse', data-target='.navbar-collapse')
+  //-                 span.icon-bar
+  //-                 span.icon-bar
+  //-                 span.icon-bar
+  //-             a.navbar-brand(href='/') CMS
+  //-         .collapse.navbar-collapse
+  //-             ul.nav.navbar-nav
+  //-               //- #{menuStr}
 
-                li#Home.active
-                      a(href='/') Home
-                  li#reg_info
-                      a(href='/reg_info') Registration Info
-                  li#contact_info
-                      a(href='/contact_info/all') Contact Info
-                  //- each result in sess_fun_data
-                  //-   li #{result.name}
+  //-               li#Home.active
+  //-                     a(href='/') Home
+  //-                 li#reg_info
+  //-                     a(href='/reg_info') Registration Info
+  //-                 li#contact_info
+  //-                     a(href='/contact_info/all') Contact Info
+  //-                 //- each result in sess_fun_data
+  //-                 //-   li #{result.name}
 
-              ul.nav.navbar-nav.navbar-right
-                  li
-                      a(href='/logout') Logout
+  //-             ul.nav.navbar-nav.navbar-right
+  //-                 li
+  //-                     a(href='/logout') Logout
 
   div.container
     table
@@ -40,17 +42,30 @@ body
       div#in
       div.orgChart#chart
       div#consoleOutput
+  //- div.hidden#fancy_add
   div.hidden#fancy_add
     form
-      h1.title_lb
-        div.span12#add_nodo
-          //- p.notice span3
-          input#new_node_name(type='text',name='node_name')
-          input#new_node_title(type='text',name='title_name')
-          //- div.span12
-          //-   a#add_node.aqua_btn span3 add
-            //- a#add_node.aqua_btn span3(href='/dashboard') add
+      h1.title_lb New Node
+      div.span12#add_nodo
+        p.notice.span3 Enter node caption
+        input#new_node_name(type='text',name='node_name')
+        input#new_node_title(type='text',name='title_name')
+        div.span12
+          button#add_node(class="aqua_btn span3", data-action="bea").
+            Add
     i.close x
+  div.hidden#fancy_edit
+    form
+      h1.title_lb Edit Node
+      div.span12#edit_nodo
+        p.notice.span3 Enter node caption
+        input#edit_node_name(type='text',name='node_name')
+        input#edit_node_title(type='text',name='title_name')
+        div.span12
+          button#edit_node(class="aqua_btn span3", data-action="bea").
+            edit
+    i.close x
+
 
 
       //- li#menuDiv
@@ -70,6 +85,7 @@ body
 
       script(type='text/javascript').
         $(document).ready(function(){
+        var data = "";
           //由session取User資訊
           $.ajax({
             type:'GET',
@@ -114,7 +130,7 @@ body
               //- alert(JSON.stringify(data));
               //- alert(data);
               $('#showGroupList').text(JSON.stringify(data));
-                //正常資料傳入  
+                //正常資料傳入 
                 loadjson(JSON.stringify(data));
 
                 init_tree();
@@ -132,7 +148,7 @@ body
           //Start Load HTML
           function loadjson(jsonList) {
             var items = [];
-            var data = TAFFY(jsonList);
+            data = TAFFY(jsonList);
 
             data({
               "parent_id": ""
