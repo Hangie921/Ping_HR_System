@@ -19,18 +19,16 @@ var urlApi = '/api' + url;
 
 router.get(url, function(req, res, next) {
     console.log("company in....");
+    var sys_params = 0;
     pinglib.SessionService.getUserSession(req, res, function(sess_user_data) {
     	if (null == sess_user_data.values) {
             res.render('index', { title: 'Express' }); //進入輸入頁面
         } else {
-	    	CompanyService.getCompany(function (company_data) {
+	    	CompanyService.getCompany(sys_params,function (company_data) {
         		console.log("company search..."+company_data.values);
             	res.render(routerName, { companys: company_data.values ,genId: uuid.v1() });
 	    	});
         }
-
-        
-
     });
 });
 

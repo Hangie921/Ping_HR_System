@@ -32,8 +32,20 @@ body
   div.container
     table
       ul
-        each val, index in ['zero', 'one', 'two']
+        each val, index in ['推', '推']
           li= index + ': ' + val
+      ul
+        mixin menu(tree)
+          for node, index in tree
+            li= index + '-name:'+tree[index].name
+            if node.menu
+              +menu(node.menu)
+
+      if(menu_tree && menu_tree.values)  
+        +menu(menu_tree.values)
+
+
+
       ul#showMenuJson
 
       ul#showGroupJson

@@ -1,6 +1,7 @@
 var express = require('express');
 var router = express.Router();
-
+var cookieParser = require('cookie-parser');
+var bodyParser = require('body-parser');
 
 // pinglib
 var pinglib = require('pinglib');
@@ -8,6 +9,7 @@ var PingUser = pinglib.User;
 var GroupService = pinglib.GroupService;
 
 router.use(require('./company'));
+router.use(require('./users'));
 
 // varaiables
 // var routerName = 'users';
@@ -19,15 +21,13 @@ router.get('/', function(req, res, next) {
     console.log("index...");
     //網站進入點
 
-    pinglib.SessionService.getMenuSession(req, res, function(menu_data) {
-        console.log(menu_data.value);
-    });
     pinglib.SessionService.getUserSession(req, res, function(sess_user_data) {
     	console.log("sess_user_data.values="+sess_user_data.values);
         if (null == sess_user_data.values) {
+
             res.render('index', { title: 'Express' }); //進入輸入頁面
         } else {
-            res.redirect('/login'); //進入會員登入menu頁面
+            res.redirect('/login', { title: 'Express' }); //進入會員登入menu頁面
         }
 
 
@@ -56,7 +56,14 @@ router.post('/login', function(req, res, next) {
 router.get('/layout', function(req, res, next) {
     pinglib.SessionService.getUserSession(req, res, function(sess_user_data) {
     	// console.log(sess_fun_data.values);
-        res.render('layout', { sess_user_data: sess_fun_data.values });
+		    pinglib.SessionService.getMenuSession(req, res, function(menu_data) {
+		        console.log("layout menu_data.value=>"+JSON.stringify(menu_data.values));
+		        console.log("layout sess_fun_data.value=>"+JSON.stringify(sess_user_data.values));
+		        var rtn = [menu_data.values];
+		        // rtn.push();
+            	res.render('layout', { sess_user_data: JSON.stringify(sess_user_data.values),menu_tree: menu_data,test:menu_data}); //進入會員登入menu頁面
+		    });
+        // res.render('layout', { sess_user_data: sess_fun_data.values });
     });
 });
 
