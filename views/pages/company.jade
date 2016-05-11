@@ -21,8 +21,9 @@ body
           li 第#{index}筆資料
           li uuid=
             input(type='text',name='#{index}_id',value='#{company._id}')
-            input(type='hidden',name='#{index}system_parameter',value='#{company.system_parameter}')
-            ,name=
+          li system_parameter=
+            input(type='text',name='#{index}system_parameter',value='#{company.system_parameter}',disabled=true)
+          li name=
             input(type='text',name='#{index}name',value='#{company.name}')
           li address=
             input(type='text',name='#{index}address',value='#{company.address}')
@@ -39,7 +40,8 @@ body
       ul
         li 
           button(onclick='update("","new")') 新增
-          input(type='hidden',name='system_parameter',value=0)
+        li system_parameter=
+          input(type='text',name='system_parameter',value='')
         
         li uuid=
           input(type='text',name='_id',value='#{genId}')

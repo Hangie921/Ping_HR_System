@@ -33,7 +33,7 @@ body
         ul
           li
             input(type='text',id="name_search",name='name_search',value='#{nameSearchValue?nameSearchValue:""}')
-            //- span#name_search.ui-autocomplete-term $1
+            span#origin.ui-autocomplete-term
             input(type='submit',value='Search',data-transition='fade', data-theme='c') 
             //- button(onclick='search()') 查詢
       each user,index in users
@@ -93,6 +93,7 @@ body
             source: "/nameAutocomplete",
             minLength: 2,
             open: function(e,ui) {
+                  alert("test...");
                   var acData = $(this).data('autocomplete');
                   acData
                       .menu

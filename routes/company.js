@@ -18,8 +18,7 @@ var url = '/' + routerName;
 var urlApi = '/api' + url;
 
 router.get(url, function(req, res, next) {
-    console.log("company in....");
-    var sys_params = 0;
+    var sys_params = null;
     pinglib.SessionService.getUserSession(req, res, function(sess_user_data) {
     	if (null == sess_user_data.values) {
             res.render('index', { title: 'Express' }); //進入輸入頁面
@@ -56,7 +55,6 @@ router.post(url + '/:id/:act', function(req, res, next) {
     		break;
     	case 'new':
     		CompanyService.setCompany(company,function (data) {
-    			console.log(data);
     			res.send({redirect: '/company'});
     		});
     		break;
