@@ -1,0 +1,168 @@
+include ../default/head
+
+body
+  block main_menu
+      include ../default/menu.jade
+
+  div.container
+    table
+      ul
+        each val, index in ['AAA', 'BBB', 'CCC']
+          li= index + ': ' + val
+        each leave,index in leaveData
+          ul
+            button(onclick='update(#{index},"edit")') 簽核
+            li 第#{index}筆資料
+            li uuid=
+              input(type='text',name='#{index}_id',value='#{leave._id}')
+              input(type='hidden',name='#{index}leave',value='#{leave}')
+      ul#showMenuJson
+
+      ul#showGroupJson
+      ul#showGroupList
+      each user,index in users
+        ul
+          li 第#{index}筆user資料:#{user.system_parameter} | #{user._id},#{user.name}
+      ul
+        li 
+          button(onclick='update("","new")') 新增價單
+        li system_parameter=
+          input(type='text',name='system_parameter',value='#{user_login_system_parameter}')
+        
+        li uuid=
+          input(type='text',name='_id',value='#{genId}')
+
+        li user_id=
+          input(type='text',name='user_id',value="#{user_id}")
+        li 起始時間=
+          input(type='text',name='start_date',value='#{start_date?start_datstarte:"2016/01/01"}',onkeyup='dayRange()')
+          input(type='text',name='start_time',value='#{start_time?start_time:"13:00"}')
+        li 結束時間=
+          input(type='text',name='end_date',value='#{end_date?end_date:"2016/01/01"}',onkeyup='dayRange()')
+          input(type='text',name='end_time',value='#{end_time?end_time:"14:00"}')
+        li 共休假幾=
+          input(type='text',name='totalHour',value='') 
+          小時
+        li 假單類型=
+          input(type='text',name='leave_type',value='') 
+          小時
+        div#viewDay
+
+        //- li 正在跑單
+        //-   ul
+        //-     each val, index in leaveAllData.rtnLeaveRoleByLevel
+        //-       li= index + val.+': ' + val.leave_totale_hour +'目前進度'
+        li 目前假期剩餘 
+          ul
+            each val, index in leaveAllData
+              li= index + ': ' + val
+        
+
+
+      script(type='text/javascript').
+        var update = function (opt_id,act){
+          $.ajax({
+            type:'POST',
+            url:'/leave/'+$('input[name='+opt_id+'_id]').val()+'/'+act,
+            data: {
+              '_id':$('input[name='+opt_id+'_id]').val(),
+              'system_parameter':$('input[name='+opt_id+'system_parameter]').val(),
+              'user_id':$('input[name='+opt_id+'user_id]').val(),
+              'start_date':$('input[name='+opt_id+'start_date]').val(),
+              'start_time':$('input[name='+opt_id+'start_time]').val(),
+              'end_date':$('input[name='+opt_id+'end_date]').val(),
+              'end_time':$('input[name='+opt_id+'end_time]').val(),
+              'totalHour':$('input[name='+opt_id+'totalHour]').val(),
+              'leave_type':$('input[name='+opt_id+'leave_type]').val(),
+              'leaveData':$('input[name='+opt_id+'leave]').val(),
+            },
+            success:function(data){
+                window.location = data.redirect;
+            },
+            error:function(err){
+              console.log(err);
+            }
+          });
+        }
+        var del = function (val){
+          alert('success...'+val);
+        }
+        $(document).ready(function(){
+        });
+        function dayRange(){
+          if($('input[name="start_date"]').val() &&
+             $('input[name="start_time"]').val() &&
+             $('input[name="end_date"]').val() &&
+             $('input[name="end_time"]').val() ){
+
+              
+              //- $('input[name="totalDays"]').val("");
+              try{
+                //假日表
+                var holidays = new Array();
+                holidays[holidays.length] = new Date("2016/10/06");
+                holidays[holidays.length] = new Date("2016/10/10");
+
+                 var day = calculateWorkDays($('input[name="start_date"]').val(),$('input[name="end_date"]').val(),holidays);
+                 timeRange = ["0800","1800"];
+                 if(day>=2){
+                    $('#viewDay').text("共"+day+"天");
+                 }else{
+                    $('#viewDay').text("小於一天 共"+day+"小時");
+                 }
+                 //- $('input[name="totalHour"]').val();
+              }catch(e){
+                $('#viewDay').text("輸入不完整");
+              }
+          }
+        }
+        //https://www.javaworld.com.tw/jute/post/view?bid=20&id=168192
+        function calculateWorkDays(fromStr, toStr,holidayArray){
+          var from = new Date();
+          var to = new Date();
+          var fromTime = Date.parse(fromStr);
+          var toTime = Date.parse(toStr);
+          from.setTime(fromTime);
+          from.setHours(0);
+          from.setMinutes(0);
+          from.setSeconds(0);
+          var orgTime = from.getTime();
+          
+          to.setTime(toTime);
+          to.setHours(0);
+          to.setMinutes(0);
+          to.setSeconds(0);
+          
+          if(from.getTime() > to.getTime()){
+            return 0;
+          }
+          //把起始日都修正到星期六 javascript的星期從0開始，所以+1來處理
+          var sDayofWeek = from.getDay()+1;
+          var workdays=0;
+          
+          //修正到星期六之後，再修正多出來的非假日
+          from.setDate(from.getDate()-(sDayofWeek%7));
+          workdays-=((sDayofWeek%7-2)>0)?sDayofWeek%7-2:0;
+          //計算兩個日期之間的天數
+          
+          var totalDays = (to.getTime()-from.getTime())/(1000*60*60*24)+1;
+          workdays+=Math.floor(totalDays/7)*5;    
+          
+          //修正最後剩餘天數
+          if((totalDays%7-2)>0){
+            workdays+=(totalDays%7-2);  
+          }
+          
+          if(holidayArray!=null){
+              for(var i=0;i<holidayArray.length;i++){
+                if(holidayArray[i].getTime()>orgTime && holidayArray[i].getTime()<to.getTime()){
+                  if(holidayArray[i].getDay()>0 && holidayArray[i].getDay()<6){
+                    workdays--;
+                  }
+                }
+              }
+            }
+            
+          return workdays;    
+        }
+

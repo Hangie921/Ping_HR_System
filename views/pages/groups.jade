@@ -7,25 +7,13 @@ body
   div.container
     table
       ul
-        each val, index in ['user page', 'user page', 'user page']
+        each val, index in ['groups page', 'groups page']
           li= index + ': ' + val
-      ul#showMenuJson
+      //- ul#showMenuJson
 
-      ul#showGroupJson
-      ul#showGroupList
-
-      ul
-        mixin groupTree(tree,parentId)
-          for node, index in tree
-            ul
-              li= '['+parentId+']<-(parentId) '+node.name+'(this.id='+node._id+')'
-                ul rank=#{node.rank}
-              if node.group
-                +groupTree(node.group,node._id)
-
-      if(groups)  
-          +groupTree(groups,null)
-      ul
+      //- ul#showGroupJson
+      //- ul#showGroupList
+      //- ul
         li 
           button(onclick='update("","new")') 新增
           input(type='text',name='system_parameter',value='#{user_login_system_parameter}')
@@ -38,34 +26,51 @@ body
         li paword=
           input(type='password',name='pwd',placeholder='Password')
         li company=
-          input(type='text',name='company_id',value ='#{user_login_company}')
+          input(type='text',name='company_id')
         li available_date=
           input(type='text',name='available_date')
         li group=
           input(type='text',name='group_id')
-      form(action='/users',method='get')
+      //- form(action='/users',method='get')
         ul
           li
             input(type='text',id="name_search",name='name_search',value='#{nameSearchValue?nameSearchValue:""}')
             span#origin.ui-autocomplete-term
             input(type='submit',value='Search',data-transition='fade', data-theme='c') 
             //- button(onclick='search()') 查詢
-      each user,index in users
+      ul
+        mixin groupTree(tree,parentId)
+          for node, index in tree
+            ul
+              li= '['+parentId+']<-(parentId) '+node.name+'(this.id='+node._id+')'
+                ul rank=#{node.rank}
+              if node.group
+                +groupTree(node.group,node._id)
+
+      if(groups)  
+          +groupTree(groups,null)
+
+      ul
+        li 
+          button(onclick='update("","new")') 新增
+          input(type='text',name='system_parameter',value='#{user_login_system_parameter}',disabled=true)
+          input(type='text',name='_id',value="#{genId}")
+        
+        li parent_id=
+          input(type='text',name='parent_id')
+        li name=
+          input(type='text',name='name',placeholder='請輸入 群組名稱')
+
+      //- each group,index in groups
         ul
-          button(onclick='update(#{index},"edit")') 修改
-          &nbsp;&nbsp;&nbsp;
-          button(onclick='update(#{index},"remove")') 刪除
           li 第#{index}筆資料
           li uuid=
-            input(type='text',name='#{index}_id',value='#{user._id}')
-            input(type='text',name='#{index}system_parameter',value='#{user.system_parameter}')
-            ,name=
-            input(type='text',name='#{index}name',value='#{user.name?user.name:""}')
-          li email=
+            input(type='text',name='#{index}name',value='#{group.name}')
+          //- li email=
             input(type='text',name='#{index}email',value='#{user.email}',disabled=true)
-          li available_date=
+          //- li available_date=
             input(type='text',name='#{index}available_date',value='#{user.available_date}')
-          li group_id=
+          //- li group_id=
             input(type='text',name='#{index}group_id',value='#{user.group_id}')
           //- li company=
             input(type='text',name='#{index}company_id',value='#{user.company_id?user.company_id:""}',disabled=true)
@@ -83,16 +88,12 @@ body
         var update = function (opt_id,act){
           $.ajax({
             type:'POST',
-            url:'/users/'+act,
+            url:'/groups/'+act,
             data: {
               '_id':$('input[name='+opt_id+'_id]').val(),
               'system_parameter':$('input[name='+opt_id+'system_parameter]').val(),
               'name':$('input[name='+opt_id+'name]').val().trim(),
-              'email':$('input[name='+opt_id+'email]').val(),
-              'pwd':$('input[name='+opt_id+'pwd]').val(),
-              'company_id':$('input[name='+opt_id+'company_id]').val(),
-              'available_date':$('input[name='+opt_id+'available_date]').val(),
-              'group_id':$('input[name='+opt_id+'group_id]').val()
+              'parent_id':$('input[name='+opt_id+'parent_id]').val()?$('input[name='+opt_id+'parent_id]').val():null
             },
             success:function(data){
                 window.location = data.redirect;
@@ -103,26 +104,16 @@ body
           });
         }
 
-        var del = function (val){
-          alert('success...'+val);
-        }
         $(document).ready(function(){
-        
-          $("#origin").autocomplete({
-            source: "/nameAutocomplete",
-            minLength: 2,
-            open: function(e,ui) {
-                  alert("test...");
-                  var acData = $(this).data('autocomplete');
-                  acData
-                      .menu
-                      .element
-                      .find('a')
-                      .each(function() {
-                          var me = $(this);
-                          var regex = new RegExp( '(' + acData.term + ')', 'gi' );
-                          me.html( me.text().replace(regex, termTemplate) );
-                      });
-              }
+
+          $.ajax({
+            type:'GET',
+            url:'/groupListBySys',
+            success:function(data){
+              $('#showGroupList').text(JSON.stringify(data));
+            },
+            error:function(err){
+              console.log(err);
+            }
           });
         });
